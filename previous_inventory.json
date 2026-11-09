@@ -1,0 +1,130 @@
+{
+  "node1": {
+    "ceph_conf": "#cyf\u6b63\u5728\u7528\uff0c\u8bf7\u52ff\u4fee\u6539\uff1b\n[global]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nfsid = 886cee71-e800-4d78-95f4-43b791bfeb50\nmon initial members = node1\nmon host = 10.26.57.54\npublic network = 10.26.57.0/24\nauth cluster required = cephx\nauth service required = cephx\nauth client required = cephx\nosd journal size = 1024\nosd pool default size = 3\nosd crush chooseleaf type = 0\nsetuser match path = /var/lib/ceph\nsetgroup match path = /var/lib/ceph\nms_type = async+rdma\nms_cluster_type = async+rdma\nms_async_rdma_device_name = mlx5_1\nms_async_rdma_polling_us = 0\nms_async_rdma_local_gid = fe80:0000:0000:0000:a088:c203:0031:f04d\n\n[mon]\nmon_allow_pool_delete = true\nmon data avail warn = 2\nmon data avail crit = 1\n\n[osd]\npublic network = 10.200.0.0/24\ncluster network = 10.200.0.0/24\n\n[client.bootstrap-osd]\nkeyring = /var/lib/ceph/bootstrap-osd/ceph.keyring\n",
+    "devices": [
+      {
+        "device": "/dev/nvme0n1",
+        "old_id": 0,
+        "serial": "PHAO3323015H1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme1n1",
+        "old_id": 3,
+        "serial": "PHAO3323004E1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme2n1",
+        "old_id": 6,
+        "serial": "PHAO331000K11P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme3n1",
+        "old_id": 9,
+        "serial": "PHAO332302EG1P9SGN",
+        "size": 1920383410176
+      }
+    ],
+    "git_branch": "dpu",
+    "git_head": "8fdb0f106133d896028732ad4871745158f13432",
+    "git_status": " M AAA-GlobalTools/startOSD.sh\n M CMakeLists.txt\n M src/CMakeLists.txt\n M src/blk/BlockDevice.h\n M src/blk/kernel/KernelDevice.cc\n M src/blk/kernel/KernelDevice.h\n m src/c-ares\n M src/ceph_osd.cc\n M src/common/options/global.yaml.in\n M src/compressor/Compressor.cc\n M src/compressor/Compressor.h\n M src/dpu/CMakeLists.txt\n D src/dpu/compress_common.c\n D src/dpu/compress_common.h\n M src/dpu/doca_common.c\n M src/dpu/doca_common.h\n D src/dpu/dpuProxy.cc\n M src/dpu/dpuProxy.h\n M src/erasure-code/CMakeLists.txt\n M src/erasure-code/ErasureCode.cc\n M src/erasure-code/ErasureCode.h\n M src/erasure-code/ErasureCodeInterface.h\n M src/erasure-code/jerasure/CMakeLists.txt\n M src/erasure-code/jerasure/ErasureCodeJerasure.cc\n M src/erasure-code/jerasure/ErasureCodeJerasure.h\n M src/erasure-code/shec/ErasureCodeShec.h\n M src/global/CMakeLists.txt\n M src/mon/CMakeLists.txt\n M src/mon/MonCommands.h\n M src/mon/OSDMonitor.cc\n M src/os/CMakeLists.txt\n M src/os/bluestore/BlueStore.cc\n M src/os/bluestore/BlueStore.h\n M src/osd/CMakeLists.txt\n M src/osd/ECBackend.cc\n M src/osd/ECBackend.h\n M src/osd/ECTransaction.cc\n M src/osd/ECTransaction.h\n M src/osd/ECUtil.cc\n M src/osd/ECUtil.h\n M src/osd/OSD.cc\n M src/osd/OSD.h\n M src/osd/OSDMap.cc\n M src/osd/PGBackend.h\n M src/osd/PrimaryLogPG.cc\n M src/osd/PrimaryLogPG.h\n M src/osd/osd_types.cc\n M src/osd/osd_types.h\n M src/test/compressor/test_compression.cc\n M src/test/erasure-code/CMakeLists.txt\n M src/test/objectstore/CMakeLists.txt\n M src/test/objectstore/store_test.cc\n M src/test/objectstore/test_bdev.cc\n M src/tools/CMakeLists.txt\n M src/tools/ceph_dedup_tool.cc\n M src/tools/erasure-code/CMakeLists.txt\n?? AAA-GlobalTools/config-backups/\n?? src/common/options/global.yaml.in.bak-before-configurable-batch-20260901\n?? src/common/options/global.yaml.in.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.cc.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.h.bak-before-zlib-dpu-20260902\n?? src/dpu/dpuDecompression.cc\n?? src/dpu/dpuProxy.cc.bak-before-1m-blob-20260901\n?? src/dpu/dpuProxy.h.bak-before-1m-blob-20260901\n?? src/dpu/tests/\n?? src/os/bluestore/BlueStore.cc.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-1m-blob-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-configurable-batch-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-smartdecomp-exp1-20260829-095500\n?? src/os/bluestore/BlueStore.cc.bak-before-zlib-dpu-20260902\n?? src/os/bluestore/BlueStore.h.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-zlib-dpu-20260902\n"
+  },
+  "node2": {
+    "ceph_conf": "#cyf\u6b63\u5728\u7528\uff0c\u8bf7\u52ff\u4fee\u6539\uff1b\n[global]\nfsid = 886cee71-e800-4d78-95f4-43b791bfeb50\nmon initial members = node1\nmon host = 10.26.57.54\npublic network = 10.26.57.0/24\nauth cluster required = cephx\nauth service required = cephx\nauth client required = cephx\nosd journal size = 1024\nosd pool default size = 3\nosd crush chooseleaf type = 0\nms_type = async+rdma\nms_cluster_type = async+rdma\nms_async_rdma_device_name = mlx5_1\nms_async_rdma_polling_us = 0\nms_async_rdma_local_gid = fe80:0000:0000:0000:a088:c203:00aa:b94d\n\n[mon]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nmon_allow_pool_delete = true\nmon data avail warn = 2\nmon data avail crit = 1\n\n[client.bootstrap-osd]\nkeyring = /var/lib/ceph/bootstrap-osd/ceph.keyring\n\n[mgr]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\n\n[osd]\npublic network = 10.200.0.0/24\ncluster network = 10.200.0.0/24\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nosd class dir = /home/cyf/ceph-dpu/build/lib\n",
+    "devices": [
+      {
+        "device": "/dev/nvme1n1",
+        "old_id": 1,
+        "serial": "PHAO332300CY1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme2n1",
+        "old_id": 4,
+        "serial": "PHAO332302F81P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme3n1",
+        "old_id": 7,
+        "serial": "PHAO332300881P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme4n1",
+        "old_id": 10,
+        "serial": "PHAO332300211P9SGN",
+        "size": 1920383410176
+      }
+    ],
+    "git_branch": "dpu",
+    "git_head": "8fdb0f106133d896028732ad4871745158f13432",
+    "git_status": " M AAA-GlobalTools/noVolumeCreateOSD.sh\n M CMakeLists.txt\n M src/CMakeLists.txt\n M src/blk/BlockDevice.h\n M src/blk/kernel/KernelDevice.cc\n M src/blk/kernel/KernelDevice.h\n M src/ceph_osd.cc\n M src/common/options/global.yaml.in\n M src/compressor/Compressor.cc\n M src/compressor/Compressor.h\n M src/dpu/CMakeLists.txt\n D src/dpu/compress_common.c\n D src/dpu/compress_common.h\n M src/dpu/doca_common.c\n M src/dpu/doca_common.h\n D src/dpu/dpuProxy.cc\n M src/dpu/dpuProxy.h\n M src/erasure-code/CMakeLists.txt\n M src/erasure-code/ErasureCode.cc\n M src/erasure-code/ErasureCode.h\n M src/erasure-code/ErasureCodeInterface.h\n M src/erasure-code/jerasure/CMakeLists.txt\n M src/erasure-code/jerasure/ErasureCodeJerasure.cc\n M src/erasure-code/jerasure/ErasureCodeJerasure.h\n M src/erasure-code/shec/ErasureCodeShec.h\n M src/global/CMakeLists.txt\n M src/mon/CMakeLists.txt\n M src/mon/MonCommands.h\n M src/mon/OSDMonitor.cc\n M src/os/CMakeLists.txt\n M src/os/bluestore/BlueStore.cc\n M src/os/bluestore/BlueStore.h\n M src/osd/CMakeLists.txt\n M src/osd/ECBackend.cc\n M src/osd/ECBackend.h\n M src/osd/ECTransaction.cc\n M src/osd/ECTransaction.h\n M src/osd/ECUtil.cc\n M src/osd/ECUtil.h\n M src/osd/OSD.cc\n M src/osd/OSD.h\n M src/osd/OSDMap.cc\n M src/osd/PGBackend.h\n M src/osd/PrimaryLogPG.cc\n M src/osd/PrimaryLogPG.h\n M src/osd/osd_types.cc\n M src/osd/osd_types.h\n M src/test/compressor/test_compression.cc\n M src/test/erasure-code/CMakeLists.txt\n M src/test/objectstore/CMakeLists.txt\n M src/test/objectstore/store_test.cc\n M src/test/objectstore/test_bdev.cc\n M src/tools/CMakeLists.txt\n M src/tools/ceph_dedup_tool.cc\n M src/tools/erasure-code/CMakeLists.txt\n?? AAA-GlobalTools/config-backups/\n?? src/common/options/global.yaml.in.bak-before-configurable-batch-20260901\n?? src/common/options/global.yaml.in.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.cc.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.h.bak-before-zlib-dpu-20260902\n?? src/dpu/dpuDecompression.cc\n?? src/dpu/dpuProxy.cc.bak-before-1m-blob-20260901\n?? src/dpu/dpuProxy.h.bak-before-1m-blob-20260901\n?? src/dpu/tests/\n?? src/os/bluestore/BlueStore.cc.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-1m-blob-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-configurable-batch-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-smartdecomp-exp1-20260829-095500\n?? src/os/bluestore/BlueStore.cc.bak-before-zlib-dpu-20260902\n?? src/os/bluestore/BlueStore.h.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-zlib-dpu-20260902\n"
+  },
+  "node3": {
+    "ceph_conf": "#cyf\u6b63\u5728\u7528\uff0c\u8bf7\u52ff\u4fee\u6539\uff1b\n[global]\nfsid = 886cee71-e800-4d78-95f4-43b791bfeb50\nmon initial members = node1\nmon host = 10.26.57.54\npublic network = 10.26.57.0/24\nauth cluster required = cephx\nauth service required = cephx\nauth client required = cephx\nosd journal size = 1024\nosd pool default size = 3\nosd crush chooseleaf type = 0\nms_type = async+rdma\nms_cluster_type = async+rdma\nms_async_rdma_device_name = mlx5_1\nms_async_rdma_polling_us = 0\nms_async_rdma_local_gid = fe80:0000:0000:0000:a088:c203:00ab:1f6d\n\n[mon]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nmon_allow_pool_delete = true\nmon data avail warn = 2\nmon data avail crit = 1\n\n[client.bootstrap-osd]\nkeyring = /var/lib/ceph/bootstrap-osd/ceph.keyring\n\n[mgr]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\n\n[osd]\npublic network = 10.200.0.0/24\ncluster network = 10.200.0.0/24\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nosd class dir = /home/cyf/ceph-dpu/build/lib\n",
+    "devices": [
+      {
+        "device": "/dev/nvme1n1",
+        "old_id": 2,
+        "serial": "PHAO332302201P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme2n1",
+        "old_id": 5,
+        "serial": "PHAO3323000H1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme3n1",
+        "old_id": 8,
+        "serial": "PHAO331000HN1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme4n1",
+        "old_id": 11,
+        "serial": "PHAO3323009G1P9SGN",
+        "size": 1920383410176
+      }
+    ],
+    "git_branch": "dpu",
+    "git_head": "5a8ee6b4ae4106e8b7c1719a4ad16ca12eb6e9fa",
+    "git_status": " M AAA-GlobalTools/noVolumeCreateOSD.sh\n M AAA-GlobalTools/startOSD.sh\n M CMakeLists.txt\n M ceph-build-deps_17.2.7-1_amd64.buildinfo\n M src/CMakeLists.txt\n M src/blk/BlockDevice.h\n M src/blk/kernel/KernelDevice.cc\n M src/blk/kernel/KernelDevice.h\n M src/ceph_osd.cc\n M src/common/options/global.yaml.in\n M src/compressor/Compressor.cc\n M src/compressor/Compressor.h\n M src/dpu/CMakeLists.txt\n D src/dpu/compress_common.c\n D src/dpu/compress_common.h\n M src/dpu/doca_common.c\n M src/dpu/doca_common.h\n D src/dpu/dpuProxy.cc\n M src/dpu/dpuProxy.h\n M src/erasure-code/CMakeLists.txt\n M src/erasure-code/ErasureCode.cc\n M src/erasure-code/ErasureCode.h\n M src/erasure-code/ErasureCodeInterface.h\n M src/erasure-code/jerasure/CMakeLists.txt\n M src/erasure-code/jerasure/ErasureCodeJerasure.cc\n M src/erasure-code/jerasure/ErasureCodeJerasure.h\n M src/erasure-code/shec/ErasureCodeShec.h\n M src/global/CMakeLists.txt\n M src/mon/CMakeLists.txt\n M src/mon/MonCommands.h\n M src/mon/OSDMonitor.cc\n M src/os/CMakeLists.txt\n M src/os/bluestore/BlueStore.cc\n M src/os/bluestore/BlueStore.h\n M src/osd/CMakeLists.txt\n M src/osd/ECBackend.cc\n M src/osd/ECBackend.h\n M src/osd/ECTransaction.cc\n M src/osd/ECTransaction.h\n M src/osd/ECUtil.cc\n M src/osd/ECUtil.h\n M src/osd/OSD.cc\n M src/osd/OSD.h\n M src/osd/OSDMap.cc\n M src/osd/PGBackend.h\n M src/osd/PrimaryLogPG.cc\n M src/osd/PrimaryLogPG.h\n M src/osd/osd_types.cc\n M src/osd/osd_types.h\n M src/test/compressor/test_compression.cc\n M src/test/erasure-code/CMakeLists.txt\n M src/test/objectstore/CMakeLists.txt\n M src/test/objectstore/store_test.cc\n M src/test/objectstore/test_bdev.cc\n M src/tools/CMakeLists.txt\n M src/tools/ceph_dedup_tool.cc\n M src/tools/erasure-code/CMakeLists.txt\n?? AAA-GlobalTools/config-backups/\n?? AAA-GlobalTools/ob_compress_read.py\n?? ACompressTestTools/eth_result.txt\n?? ACompressTestTools/ib_result.txt\n?? src/common/options/global.yaml.in.bak-before-configurable-batch-20260901\n?? src/common/options/global.yaml.in.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.cc.bak-before-zlib-dpu-20260902\n?? src/compressor/Compressor.h.bak-before-zlib-dpu-20260902\n?? src/dpu/dpuDecompression.cc\n?? src/dpu/dpuProxy.cc.bak-before-1m-blob-20260901\n?? src/dpu/dpuProxy.h.bak-before-1m-blob-20260901\n?? src/dpu/tests/\n?? src/os/bluestore/BlueStore.cc.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-1m-blob-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-configurable-batch-20260901\n?? src/os/bluestore/BlueStore.cc.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.cc.bak-before-smartdecomp-exp1-20260829-095500\n?? src/os/bluestore/BlueStore.cc.bak-before-zlib-dpu-20260902\n?? src/os/bluestore/BlueStore.h.bak-batch32-locked-before-pedal-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-dpu-lock-20260830\n?? src/os/bluestore/BlueStore.h.bak-before-zlib-dpu-20260902\n"
+  },
+  "node4": {
+    "ceph_conf": "#cyf\u6b63\u5728\u7528\uff0c\u8bf7\u52ff\u4fee\u6539\uff1b\n[global]\nfsid = 886cee71-e800-4d78-95f4-43b791bfeb50\nmon initial members = node1\nmon host = 10.26.57.54\npublic network = 10.26.57.0/24\nauth cluster required = cephx\nauth service required = cephx\nauth client required = cephx\nosd journal size = 1024\nosd pool default size = 3\nosd crush chooseleaf type = 0\nms_type = async+rdma\nms_cluster_type = async+rdma\nms_async_rdma_device_name = mlx5_1\nms_async_rdma_polling_us = 0\nms_async_rdma_local_gid = fe80:0000:0000:0000:a088:c203:0031:ed09\n\n[mon]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nmon_allow_pool_delete = true\nmon data avail warn = 2\nmon data avail crit = 1\n\n[client.bootstrap-osd]\nkeyring = /var/lib/ceph/bootstrap-osd/ceph.keyring\n\n[mgr]\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\n\n[osd]\npublic network = 10.200.0.0/24\ncluster network = 10.200.0.0/24\nerasure code dir = /home/cyf/ceph-dpu/build/lib\nplugin dir = /home/cyf/ceph-dpu/build/lib\nosd class dir = /home/cyf/ceph-dpu/build/lib\n",
+    "devices": [
+      {
+        "device": "/dev/nvme0n1",
+        "old_id": 12,
+        "serial": "PHAO332302EC1P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme1n1",
+        "old_id": 13,
+        "serial": "PHAO332302F01P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme2n1",
+        "old_id": 14,
+        "serial": "PHAO332300D21P9SGN",
+        "size": 1920383410176
+      },
+      {
+        "device": "/dev/nvme3n1",
+        "old_id": 15,
+        "serial": "PHAO3323000A1P9SGN",
+        "size": 1920383410176
+      }
+    ],
+    "git_branch": "feature/dpu-decompression-only",
+    "git_head": "ad53c2cc1fbf56ba31f2dbb86c95ec97dde18fc9",
+    "git_status": ""
+  }
+}

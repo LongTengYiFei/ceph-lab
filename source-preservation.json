@@ -1,0 +1,6 @@
+{
+  "backup_branch": "backup/pre-quincy-17.2.7-20261109T105939Z",
+  "old_head": "ad53c2cc1fbf56ba31f2dbb86c95ec97dde18fc9",
+  "old_branch": "feature/dpu-decompression-only",
+  "submodule_stashes": {}
+}

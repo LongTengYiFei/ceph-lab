@@ -1,0 +1,9 @@
+lab-smoke-rep-20261109113329 check-0 SHA256 OK
+lab-smoke-rep-20261109113329 check-1 SHA256 OK
+lab-smoke-rep-20261109113329 check-2 SHA256 OK
+lab-smoke-rep-20261109113329 check-3 SHA256 OK
+lab-smoke-ec-20261109113329 check-0 SHA256 OK
+lab-smoke-ec-20261109113329 check-1 SHA256 OK
+lab-smoke-ec-20261109113329 check-2 SHA256 OK
+lab-smoke-ec-20261109113329 check-3 SHA256 OK
+all eight object readback checks passed; temporary pools/profile removed

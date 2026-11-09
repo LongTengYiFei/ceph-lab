@@ -1,0 +1,22 @@
+[Unit]
+Description=Ceph 17.2.7 mgr.%i
+Wants=network-online.target
+After=network-online.target
+Conflicts=ceph-mgr@%i.service
+
+[Service]
+Type=simple
+Environment=LD_LIBRARY_PATH=/home/cyf/ceph-dpu/build/lib
+Environment=PYTHONPATH=/home/cyf/ceph-dpu/build/lib/cython_modules/lib.3:/home/cyf/ceph-dpu/src/pybind:/home/cyf/ceph-dpu/src/python-common
+LimitNOFILE=1048576
+LimitMEMLOCK=infinity
+TasksMax=infinity
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+User=cyf
+Group=cyf
+ExecStart=/home/cyf/ceph-dpu/build/bin/ceph-mgr -f --conf /etc/ceph/ceph.conf --cluster ceph --id %i --mgr-data /var/lib/ceph/mgr/ceph-%i --mgr-module-path /home/cyf/ceph-lab-17.2.7/mgr-modules --admin-socket /run/ceph/ceph-mgr.%i.asok --pid-file /run/ceph/ceph-mgr.%i.pid --log-file /var/log/ceph/quincy-mgr.%i.log
+
+[Install]
+WantedBy=multi-user.target

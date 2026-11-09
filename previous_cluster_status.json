@@ -1,0 +1,91 @@
+{
+  "election_epoch": 29,
+  "fsid": "886cee71-e800-4d78-95f4-43b791bfeb50",
+  "fsmap": {
+    "by_rank": [],
+    "epoch": 17,
+    "up:standby": 0
+  },
+  "health": {
+    "checks": {
+      "AUTH_INSECURE_GLOBAL_ID_RECLAIM_ALLOWED": {
+        "muted": false,
+        "severity": "HEALTH_WARN",
+        "summary": {
+          "count": 1,
+          "message": "mon is allowing insecure global_id reclaim"
+        }
+      },
+      "MGR_MODULE_DEPENDENCY": {
+        "muted": false,
+        "severity": "HEALTH_WARN",
+        "summary": {
+          "count": 3,
+          "message": "3 mgr modules have failed dependencies"
+        }
+      },
+      "MON_MSGR2_NOT_ENABLED": {
+        "muted": false,
+        "severity": "HEALTH_WARN",
+        "summary": {
+          "count": 1,
+          "message": "1 monitors have not enabled msgr2"
+        }
+      }
+    },
+    "mutes": [],
+    "status": "HEALTH_WARN"
+  },
+  "mgrmap": {
+    "available": true,
+    "modules": [
+      "iostat",
+      "nfs",
+      "restful"
+    ],
+    "num_standbys": 0,
+    "services": {}
+  },
+  "monmap": {
+    "epoch": 1,
+    "min_mon_release_name": "quincy",
+    "num_mons": 1
+  },
+  "osdmap": {
+    "epoch": 29875,
+    "num_in_osds": 16,
+    "num_osds": 16,
+    "num_remapped_pgs": 0,
+    "num_up_osds": 16,
+    "osd_in_since": 1793885135,
+    "osd_up_since": 1794168156
+  },
+  "pgmap": {
+    "bytes_avail": 30704427347968,
+    "bytes_total": 30726134562816,
+    "bytes_used": 21707214848,
+    "data_bytes": 1638944,
+    "num_objects": 2,
+    "num_pgs": 1,
+    "num_pools": 1,
+    "pgs_by_state": [
+      {
+        "count": 1,
+        "state_name": "active+clean"
+      }
+    ]
+  },
+  "progress_events": {},
+  "quorum": [
+    0
+  ],
+  "quorum_age": 216723,
+  "quorum_names": [
+    "node1"
+  ],
+  "servicemap": {
+    "epoch": 7464,
+    "modified": "2026-11-09T10:49:35.401501+0000",
+    "services": {}
+  }
+}

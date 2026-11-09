@@ -1,0 +1,66 @@
+All four upstream builds verified; initializing fresh lab
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/init_cluster.py", line 196, in <module>
+    main()
+  File "/home/cyf/ceph-lab-17.2.7/init_cluster.py", line 181, in main
+    remote(host,shlex.join(command),timeout=300)
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 30, in remote
+    return run(args, timeout=timeout, check=check)
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 24, in run
+    raise RuntimeError(f'{args}: exit={p.returncode}\n{p.stdout[-3000:]}\n{p.stderr[-3000:]}')
+RuntimeError: ('ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10', '-p', '23579', 'node1', 'sudo -n prlimit --memlock=unlimited -- env LD_LIBRARY_PATH=/home/cyf/ceph-dpu/build/lib /home/cyf/ceph-dpu/build/bin/ceph-osd --conf /etc/ceph/ceph.conf --mkfs -i 0 --osd-uuid 48b1f9b7-7f1b-47f9-8c81-d99d99c26e93 --osd-data /var/lib/ceph/osd/ceph-0 --keyring /var/lib/ceph/osd/ceph-0/keyring --setuser root --setgroup root'): exit=1
+
+2026-11-09T11:18:59.001+0000 7fd3d5bf83c0 -1 auth: error parsing file /var/lib/ceph/osd/ceph-0/keyring: cannot parse buffer: Malformed input
+2026-11-09T11:18:59.001+0000 7fd3d5bf83c0 -1 auth: failed to load /var/lib/ceph/osd/ceph-0/keyring: (5) Input/output error
+2026-11-09T11:18:59.021+0000 7fd3d5bf83c0 -1 auth: error parsing file /var/lib/ceph/osd/ceph-0/keyring: cannot parse buffer: Malformed input
+2026-11-09T11:18:59.021+0000 7fd3d5bf83c0 -1 auth: failed to load /var/lib/ceph/osd/ceph-0/keyring: (5) Input/output error
+2026-11-09T11:18:59.021+0000 7fd3d5bf83c0 -1 auth: error parsing file /var/lib/ceph/osd/ceph-0/keyring: cannot parse buffer: Malformed input
+2026-11-09T11:18:59.021+0000 7fd3d5bf83c0 -1 auth: failed to load /var/lib/ceph/osd/ceph-0/keyring: (5) Input/output error
+2026-11-09T11:18:59.021+0000 7fd3d5bf83c0 -1 monclient: keyring not found
+failed to fetch mon config (--no-mon-config to skip)
+
+All four upstream builds verified; initializing fresh lab
+node1: osd.0 initialized on /dev/nvme0n1
+node1: osd.1 initialized on /dev/nvme1n1
+node1: osd.2 initialized on /dev/nvme2n1
+node1: osd.3 initialized on /dev/nvme3n1
+node2: osd.4 initialized on /dev/nvme1n1
+node2: osd.5 initialized on /dev/nvme2n1
+node2: osd.6 initialized on /dev/nvme3n1
+node2: osd.7 initialized on /dev/nvme4n1
+node3: osd.8 initialized on /dev/nvme1n1
+node3: osd.9 initialized on /dev/nvme2n1
+node3: osd.10 initialized on /dev/nvme3n1
+node3: osd.11 initialized on /dev/nvme4n1
+cluster:
+    id:     d095113b-6801-4f99-a3d5-306260ab1334
+    health: HEALTH_WARN
+            13 mgr modules have failed dependencies
+ 
+  services:
+    mon: 1 daemons, quorum node1 (age 3m)
+    mgr: m1(active, since 3m)
+    osd: 12 osds: 12 up (since 8s), 12 in (since 20s)
+ 
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0 B
+    usage:   3.4 GiB used, 21 TiB / 21 TiB avail
+    pgs:
+ID  CLASS  WEIGHT    TYPE NAME       STATUS  REWEIGHT  PRI-AFF
+-1         20.95917  root default                             
+-3          6.98639      host node1                           
+ 0    ssd   1.74660          osd.0       up   1.00000  1.00000
+ 1    ssd   1.74660          osd.1       up   1.00000  1.00000
+ 2    ssd   1.74660          osd.2       up   1.00000  1.00000
+ 3    ssd   1.74660          osd.3       up   1.00000  1.00000
+-5          6.98639      host node2                           
+ 4    ssd   1.74660          osd.4       up   1.00000  1.00000
+ 5    ssd   1.74660          osd.5       up   1.00000  1.00000
+ 6    ssd   1.74660          osd.6       up   1.00000  1.00000
+ 7    ssd   1.74660          osd.7       up   1.00000  1.00000
+-7          6.98639      host node3                           
+ 8    ssd   1.74660          osd.8       up   1.00000  1.00000
+ 9    ssd   1.74660          osd.9       up   1.00000  1.00000
+10    ssd   1.74660          osd.10      up   1.00000  1.00000
+11    ssd   1.74660          osd.11      up   1.00000  1.00000

@@ -1,0 +1,225 @@
+{
+  "checks": [
+    {
+      "bytes": 2097152,
+      "object": "check-0",
+      "pool": "lab-smoke-rep-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-1",
+      "pool": "lab-smoke-rep-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-2",
+      "pool": "lab-smoke-rep-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-3",
+      "pool": "lab-smoke-rep-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-0",
+      "pool": "lab-smoke-ec-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-1",
+      "pool": "lab-smoke-ec-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-2",
+      "pool": "lab-smoke-ec-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    },
+    {
+      "bytes": 2097152,
+      "object": "check-3",
+      "pool": "lab-smoke-ec-20261109113329",
+      "sha256": "659ab6a7d680d80fa1b608eaae204c696b5109b3572d84a6a096a5a94afcb5c2"
+    }
+  ],
+  "final_pools": [
+    ".mgr"
+  ],
+  "final_status": {
+    "election_epoch": 3,
+    "fsid": "d095113b-6801-4f99-a3d5-306260ab1334",
+    "fsmap": {
+      "by_rank": [],
+      "epoch": 1,
+      "up:standby": 0
+    },
+    "health": {
+      "checks": {},
+      "mutes": [],
+      "status": "HEALTH_OK"
+    },
+    "mgrmap": {
+      "available": true,
+      "modules": [
+        "iostat",
+        "nfs",
+        "restful"
+      ],
+      "num_standbys": 0,
+      "services": {}
+    },
+    "monmap": {
+      "epoch": 1,
+      "min_mon_release_name": "quincy",
+      "num_mons": 1
+    },
+    "osdmap": {
+      "epoch": 69,
+      "num_in_osds": 12,
+      "num_osds": 12,
+      "num_remapped_pgs": 0,
+      "num_up_osds": 12,
+      "osd_in_since": 1794223331,
+      "osd_up_since": 1794223343
+    },
+    "pgmap": {
+      "bytes_avail": 23040924733440,
+      "bytes_total": 23044600922112,
+      "bytes_used": 3676188672,
+      "data_bytes": 590368,
+      "num_objects": 2,
+      "num_pgs": 1,
+      "num_pools": 1,
+      "pgs_by_state": [
+        {
+          "count": 1,
+          "state_name": "active+clean"
+        }
+      ]
+    },
+    "progress_events": {},
+    "quorum": [
+      0
+    ],
+    "quorum_age": 919,
+    "quorum_names": [
+      "node1"
+    ],
+    "servicemap": {
+      "epoch": 15,
+      "modified": "2026-11-09T11:29:50.213873+0000",
+      "services": {}
+    }
+  },
+  "pool_stats_before_cleanup": {
+    "pools": [
+      {
+        "id": 1,
+        "name": ".mgr",
+        "stats": {
+          "avail_raw": 21888651206944,
+          "bytes_used": 1781760,
+          "compress_bytes_used": 0,
+          "compress_under_bytes": 0,
+          "data_bytes_used": 1781760,
+          "dirty": 0,
+          "kb_used": 1740,
+          "max_avail": 7296216727552,
+          "objects": 2,
+          "omap_bytes_used": 0,
+          "percent_used": 8.140108320731088e-08,
+          "quota_bytes": 0,
+          "quota_objects": 0,
+          "rd": 226,
+          "rd_bytes": 203776,
+          "stored": 590368,
+          "stored_data": 590368,
+          "stored_omap": 0,
+          "stored_raw": 1771104,
+          "wr": 401,
+          "wr_bytes": 8353792
+        }
+      },
+      {
+        "id": 2,
+        "name": "lab-smoke-rep-20261109113329",
+        "stats": {
+          "avail_raw": 21888651206944,
+          "bytes_used": 13369344,
+          "compress_bytes_used": 786432,
+          "compress_under_bytes": 12582912,
+          "data_bytes_used": 13369344,
+          "dirty": 0,
+          "kb_used": 13056,
+          "max_avail": 7296216727552,
+          "objects": 4,
+          "omap_bytes_used": 0,
+          "percent_used": 6.107885042183625e-07,
+          "quota_bytes": 0,
+          "quota_objects": 0,
+          "rd": 4,
+          "rd_bytes": 8388608,
+          "stored": 8388608,
+          "stored_data": 8388608,
+          "stored_omap": 0,
+          "stored_raw": 25165824,
+          "wr": 4,
+          "wr_bytes": 8388608
+        }
+      },
+      {
+        "id": 3,
+        "name": "lab-smoke-ec-20261109113329",
+        "stats": {
+          "avail_raw": 21888651206944,
+          "bytes_used": 3145728,
+          "compress_bytes_used": 0,
+          "compress_under_bytes": 0,
+          "data_bytes_used": 3145728,
+          "dirty": 0,
+          "kb_used": 3072,
+          "max_avail": 14592433455104,
+          "objects": 1,
+          "omap_bytes_used": 0,
+          "percent_used": 1.4371499901244533e-07,
+          "quota_bytes": 0,
+          "quota_objects": 0,
+          "rd": 0,
+          "rd_bytes": 0,
+          "stored": 2097152,
+          "stored_data": 2097152,
+          "stored_omap": 0,
+          "stored_raw": 3145728,
+          "wr": 1,
+          "wr_bytes": 2097152
+        }
+      }
+    ],
+    "stats": {
+      "num_osds": 12,
+      "num_per_pool_omap_osds": 12,
+      "num_per_pool_osds": 12,
+      "total_avail_bytes": 23040911904768,
+      "total_bytes": 23044600922112,
+      "total_used_bytes": 3689017344,
+      "total_used_raw_bytes": 3689017344,
+      "total_used_raw_ratio": 0.00016008163220249116
+    },
+    "stats_by_class": {
+      "ssd": {
+        "total_avail_bytes": 23040911904768,
+        "total_bytes": 23044600922112,
+        "total_used_bytes": 3689017344,
+        "total_used_raw_bytes": 3689017344,
+        "total_used_raw_ratio": 0.00016008163220249116
+      }
+    }
+  }
+}

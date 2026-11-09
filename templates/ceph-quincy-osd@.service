@@ -1,0 +1,20 @@
+[Unit]
+Description=Ceph 17.2.7 osd.%i
+Wants=network-online.target
+After=network-online.target
+Conflicts=ceph-osd@%i.service ceph-custom-osd@%i.service
+
+[Service]
+Type=simple
+Environment=LD_LIBRARY_PATH=/home/cyf/ceph-dpu/build/lib
+Environment=PYTHONPATH=/home/cyf/ceph-dpu/build/lib/cython_modules/lib.3:/home/cyf/ceph-dpu/src/pybind:/home/cyf/ceph-dpu/src/python-common
+LimitNOFILE=1048576
+LimitMEMLOCK=infinity
+TasksMax=infinity
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+ExecStart=/home/cyf/ceph-dpu/build/bin/ceph-osd -f --conf /etc/ceph/ceph.conf --cluster ceph --id %i --setuser root --setgroup root --osd-data /var/lib/ceph/osd/ceph-%i --keyring /var/lib/ceph/osd/ceph-%i/keyring --osd-class-dir /home/cyf/ceph-dpu/build/lib --admin-socket /run/ceph/ceph-osd.%i.asok --pid-file /run/ceph/ceph-osd.%i.pid --log-file /var/log/ceph/quincy-osd.%i.log
+
+[Install]
+WantedBy=multi-user.target
