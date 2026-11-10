@@ -1,5 +1,19 @@
 # Ceph 17.2.7：三节点、12 OSD 实验集群
 
+## snapWrite 测试分支（当前运行状态）
+
+四台源码使用从原版 17.2.7 派生的 `snapWrite` 分支，提交为
+`69fbba696bee9762a0025b6b128ddd978120ac78`。12 个 OSD 已运行该版本，MON/MGR 保持原版。
+OSD 节点通过 systemd drop-in 使用各自的版本目录；运行文件不纳入本仓库。
+
+补丁、测试脚本、逐轮 CSV 和原始数据压缩包统一保存在
+[Exp_SnapshotWriteAmplification](Exp_SnapshotWriteAmplification/README.md)，
+重新运行产生的文件写入该目录下已忽略的 `output/`。
+
+`clusterctl.py start/stop/restart/status` 仍可管理当前服务。
+`clusterctl.py verify` 和 `build.sh` 严格检查原版提交，不适用于 `snapWrite`。
+下文和原始 `validation.json` 保留原版集群的搭建记录。
+
 本目录独立于 Git 源码分支，主控机是 node4。另一个 session 从这里接手即可。
 
 - 四台源码目录均为 `/home/cyf/ceph-dpu`。

@@ -1,0 +1,9 @@
+# Generated caches and logs; already tracked baseline files are unaffected.
+__pycache__/
+*.py[cod]
+*.log
+/snapwrite-*.xml
+/backups/
+/snapwrite-artifacts/
+/snapwrite-results/
+/Exp_SnapshotWriteAmplification/output/

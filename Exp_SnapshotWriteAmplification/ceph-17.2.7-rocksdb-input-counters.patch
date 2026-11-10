@@ -1,0 +1,283 @@
+From 69fbba696bee9762a0025b6b128ddd978120ac78 Mon Sep 17 00:00:00 2001
+From: chenyifei <378802033@qq.com>
+Date: Mon, 9 Nov 2026 13:28:02 +0000
+Subject: [PATCH] kv/rocksdb: count successfully submitted batches, updates and
+ bytes
+
+---
+ doc/dev/rocksdb-submission-counters.rst |  84 ++++++++++++++++++
+ src/kv/RocksDBStore.cc                  |  15 ++++
+ src/kv/RocksDBStore.h                   |   3 +
+ src/test/objectstore/test_kv.cc         | 108 ++++++++++++++++++++++++
+ 4 files changed, 210 insertions(+)
+ create mode 100644 doc/dev/rocksdb-submission-counters.rst
+
+diff --git a/doc/dev/rocksdb-submission-counters.rst b/doc/dev/rocksdb-submission-counters.rst
+new file mode 100644
+index 0000000000..cbce7bf57f
+--- /dev/null
++++ b/doc/dev/rocksdb-submission-counters.rst
+@@ -0,0 +1,84 @@
++RocksDB submission counters for snapshot experiments
++===================================================
++
++The ``snapWrite`` branch starts at Ceph 17.2.7 commit
++``b12291d110049b2f35e32e0de30d70e9a4c060d2``. It adds three counters to
++``RocksDBStore::submit_common()``, shared by the synchronous and asynchronous
++KeyValueDB submission APIs:
++
++* ``rocksdb.submitted_txns``: successfully submitted WriteBatches, including
++  empty batches used for synchronization.
++* ``rocksdb.submitted_ops``: the sum of ``WriteBatch::Count()``. Repeated
++  updates to the same key are counted separately. Put, Delete, SingleDelete,
++  DeleteRange and Merge records contribute according to RocksDB's batch count.
++* ``rocksdb.submitted_bytes``: the sum of ``WriteBatch::GetDataSize()`` captured
++  before ``DB::Write()``. This includes encoded keys, values, operation tags,
++  length fields, column-family identifiers and the batch header. An empty
++  batch currently contributes its 12-byte header and zero updates.
++
++Only successful calls are counted. Failed submissions contribute zero. Each
++successful resubmission of the same transaction is counted again. Measurements
++use cumulative input, not unique keys or net database growth. Reads and
++RocksDB-internal WAL, flush and compaction writes do not increment these
++counters. There are three counter updates per successful submission; no
++per-record traversal or logging is added to the hot path.
++
++Scope and limitations
++---------------------
++
++An OSD's database is shared by its pools, so these counters cover all
++submissions to that OSD's RocksDBStore. They do not attribute bytes to pools.
++Run the baseline and snapshot workloads sequentially and collect deltas on
++all participating OSDs. MONs and other programs linked with this implementation
++also expose these counters if rebuilt, but their values are outside the OSD
++measurement.
++
++These are serialized input bytes at the KeyValueDB/RocksDB boundary, not SSD
++writes, unencoded application metadata, or database space usage. BlueStore
++deferred transactions can contain user data as well as metadata. Check
++``bluestore.issued_deferred_write_bytes`` during the experiment; any increase
++must be investigated or reported separately before interpreting the input as
++pure metadata. These three counters do not filter deferred records.
++
++The counters are process-local and start over after a process restart or
++``perf reset rocksdb``. Their three fields are updated separately, so take
++final measurements after the workload has drained. They are available without
++enabling ``rocksdb_perf`` or verbose debug logging.
++
++Reading and resetting
++---------------------
++
++For example, using the lab's matching client wrapper on node4::
++
++  /home/cyf/ceph-lab-17.2.7/ceph.sh tell osd.0 perf dump -f json \
++    | jq '.rocksdb | {submitted_txns, submitted_ops, submitted_bytes}'
++
++The existing reset command resets the entire RocksDB counter group, including
++its latency and compaction counters::
++
++  /home/cyf/ceph-lab-17.2.7/ceph.sh tell osd.0 perf reset rocksdb
++
++For serial experiments, recording a baseline and subtracting it preserves the
++original counter history. If resetting, drain the preceding workload first,
++reset all measured OSDs, then take a new baseline to account for background
++submissions. Neither reset nor reading a counter clears the database or cache.
++
++For a workload writing ``W`` client bytes, sum the OSD deltas to obtain ``L``.
++Compare ``L_snap`` and ``L_base`` for identical logical workloads. Report the
++snapshot increment as ``(L_snap - L_base) / W`` and the extra bytes per object
++as ``(L_snap - L_base) / object_count``. Keep pool creation, initial data loading,
++snapshot creation (unless explicitly measured), deletion and snaptrim outside
++the overwrite measurement windows.
++
++Validation
++----------
++
++Build ``ceph-osd`` and ``ceph_test_keyvaluedb``. Run the submission-counter
++tests in a disposable working directory; the test fixture creates and removes
++``kv_test_temp_dir`` relative to that directory::
++
++  ceph_test_keyvaluedb --gtest_filter='KeyValueDB/KVTest.SubmittedCounters*/0'
++
++The tests cover synchronous and asynchronous submission, repeated updates,
++deletes, merges, reads, compaction, empty synchronization batches, counter
++reset and failed writes to a read-only database.
+diff --git a/src/kv/RocksDBStore.cc b/src/kv/RocksDBStore.cc
+index de2a486ae5..4b5620a270 100644
+--- a/src/kv/RocksDBStore.cc
++++ b/src/kv/RocksDBStore.cc
+@@ -1251,6 +1251,13 @@ int RocksDBStore::do_open(ostream &out,
+   plb.add_time_avg(l_rocksdb_write_delay_time, "rocksdb_write_delay_time", "Rocksdb write delay time");
+   plb.add_time_avg(l_rocksdb_write_pre_and_post_process_time, 
+       "rocksdb_write_pre_and_post_time", "total time spent on writing a record, excluding write process");
++  plb.add_u64_counter(l_rocksdb_submitted_txns, "submitted_txns",
++      "Successfully submitted WriteBatches, including empty batches");
++  plb.add_u64_counter(l_rocksdb_submitted_ops, "submitted_ops",
++      "Updates in successfully submitted WriteBatches");
++  plb.add_u64_counter(l_rocksdb_submitted_bytes, "submitted_bytes",
++      "Serialized bytes in successfully submitted WriteBatches, including headers",
++      nullptr, PerfCountersBuilder::PRIO_USEFUL, unit_t(UNIT_BYTES));
+   logger = plb.create_perf_counters();
+   cct->get_perfcounters_collection()->add(logger);
+ 
+@@ -1552,12 +1559,20 @@ int RocksDBStore::submit_common(rocksdb::WriteOptions& woptions, KeyValueDB::Tra
+   _t->bat.Iterate(&bat_txc);
+   *_dout << " Rocksdb transaction: " << bat_txc.seen.str() << dendl;
+   
++  // Measure the input before RocksDB adds its own WAL/SST/compaction writes.
++  // Both submit_transaction() and submit_transaction_sync() use this path.
++  const auto submitted_bytes = _t->bat.GetDataSize();
++  const auto submitted_ops = _t->bat.Count();
+   rocksdb::Status s = db->Write(woptions, &_t->bat);
+   if (!s.ok()) {
+     RocksWBHandler rocks_txc(*this);
+     _t->bat.Iterate(&rocks_txc);
+     derr << __func__ << " error: " << s.ToString() << " code = " << s.code()
+          << " Rocksdb transaction: " << rocks_txc.seen.str() << dendl;
++  } else {
++    logger->inc(l_rocksdb_submitted_txns);
++    logger->inc(l_rocksdb_submitted_ops, submitted_ops);
++    logger->inc(l_rocksdb_submitted_bytes, submitted_bytes);
+   }
+ 
+   if (cct->_conf->rocksdb_perf) {
+diff --git a/src/kv/RocksDBStore.h b/src/kv/RocksDBStore.h
+index 01c84f2d0b..a08c8a16c1 100644
+--- a/src/kv/RocksDBStore.h
++++ b/src/kv/RocksDBStore.h
+@@ -42,6 +42,9 @@ enum {
+   l_rocksdb_write_memtable_time,
+   l_rocksdb_write_delay_time,
+   l_rocksdb_write_pre_and_post_process_time,
++  l_rocksdb_submitted_txns,
++  l_rocksdb_submitted_ops,
++  l_rocksdb_submitted_bytes,
+   l_rocksdb_last,
+ };
+ 
+diff --git a/src/test/objectstore/test_kv.cc b/src/test/objectstore/test_kv.cc
+index abc43f46d9..91eed6c368 100644
+--- a/src/test/objectstore/test_kv.cc
++++ b/src/test/objectstore/test_kv.cc
+@@ -24,6 +24,7 @@
+ #include "global/global_init.h"
+ #include "common/Cond.h"
+ #include "common/errno.h"
++#include "common/perf_counters.h"
+ #include "include/stringify.h"
+ #include <gtest/gtest.h>
+ 
+@@ -261,6 +262,113 @@ TEST_P(KVTest, Merge) {
+   fini();
+ }
+ 
++TEST_P(KVTest, SubmittedCounters) {
++  if (string(GetParam()) != "rocksdb") {
++    GTEST_SKIP() << "RocksDB-specific counters";
++  }
++  ASSERT_EQ(0, db->set_merge_operator("A", make_shared<AppendMOP>()));
++  ASSERT_EQ(0, db->create_and_open(cout));
++  auto* logger = db->get_perf_counters();
++  ASSERT_NE(nullptr, logger);
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_bytes));
++
++  bufferlist value;
++  value.append(string(4096, 'v'));
++  auto async = db->get_transaction();
++  async->set("P", "key", value);
++  async->set("P", "key", value); // Count repeated updates, not unique keys.
++  async->rmkey("P", "missing");
++  const auto async_bytes =
++    static_cast<RocksDBStore::RocksDBTransactionImpl*>(async.get())
++      ->bat.GetDataSize();
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_bytes));
++  ASSERT_EQ(0, db->submit_transaction(async));
++  ASSERT_EQ(1u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(3u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(async_bytes, logger->get(l_rocksdb_submitted_bytes));
++
++  auto sync = db->get_transaction();
++  sync->rmkey("P", "key");
++  sync->merge("A", "merged", value);
++  const auto sync_bytes =
++    static_cast<RocksDBStore::RocksDBTransactionImpl*>(sync.get())
++      ->bat.GetDataSize();
++  ASSERT_EQ(0, db->submit_transaction_sync(sync));
++  ASSERT_EQ(2u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(5u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(async_bytes + sync_bytes,
++            logger->get(l_rocksdb_submitted_bytes));
++
++  bufferlist result;
++  ASSERT_EQ(0, db->get("A", "merged", &result));
++  ASSERT_EQ("?" + string(4096, 'v'), _bl_to_str(result));
++  db->compact(); // RocksDB's internal rewrites must not count as submissions.
++  ASSERT_EQ(2u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(5u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(async_bytes + sync_bytes,
++            logger->get(l_rocksdb_submitted_bytes));
++}
++
++TEST_P(KVTest, SubmittedCountersEmptyAndReset) {
++  if (string(GetParam()) != "rocksdb") {
++    GTEST_SKIP() << "RocksDB-specific counters";
++  }
++  ASSERT_EQ(0, db->create_and_open(cout));
++  auto* logger = db->get_perf_counters();
++  ASSERT_NE(nullptr, logger);
++
++  auto empty = db->get_transaction();
++  const auto empty_bytes =
++    static_cast<RocksDBStore::RocksDBTransactionImpl*>(empty.get())
++      ->bat.GetDataSize();
++  ASSERT_GT(empty_bytes, 0u); // The serialized batch header is included.
++  ASSERT_EQ(0, db->submit_transaction_sync(empty));
++  ASSERT_EQ(1u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(empty_bytes, logger->get(l_rocksdb_submitted_bytes));
++
++  // Use the same collection reset as the admin-socket "perf reset rocksdb".
++  ASSERT_TRUE(g_ceph_context->get_perfcounters_collection()->reset("rocksdb"));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_bytes));
++
++  bufferlist value;
++  value.append("after-reset");
++  auto t = db->get_transaction();
++  t->set("P", "key", value);
++  const auto bytes =
++    static_cast<RocksDBStore::RocksDBTransactionImpl*>(t.get())
++      ->bat.GetDataSize();
++  ASSERT_EQ(0, db->submit_transaction(t));
++  ASSERT_EQ(1u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(1u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(bytes, logger->get(l_rocksdb_submitted_bytes));
++}
++
++TEST_P(KVTest, SubmittedCountersFailedWrite) {
++  if (string(GetParam()) != "rocksdb") {
++    GTEST_SKIP() << "RocksDB-specific counters";
++  }
++  ASSERT_EQ(0, db->create_and_open(cout));
++  db->close();
++  ASSERT_EQ(0, db->open_read_only(cout));
++  auto* logger = db->get_perf_counters();
++  ASSERT_NE(nullptr, logger);
++
++  bufferlist value;
++  value.append("read-only");
++  auto t = db->get_transaction();
++  t->set("P", "key", value);
++  ASSERT_NE(0, db->submit_transaction(t));
++  ASSERT_NE(0, db->submit_transaction_sync(t));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_txns));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_ops));
++  ASSERT_EQ(0u, logger->get(l_rocksdb_submitted_bytes));
++}
++
+ TEST_P(KVTest, RMRange) {
+   ASSERT_EQ(0, db->create_and_open(cout));
+   bufferlist value;
