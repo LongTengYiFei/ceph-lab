@@ -1,0 +1,172 @@
+RESULT_DIR=/home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T125223Z-formal-add1
+  ceph balancer off
+  ceph osd crush rule create-replicated pgb-rule-20261110t125223z-formal-add1 default osd
+  ceph osd pool create pgb-20261110t125223z-formal-add1 128 128 replicated --rule=pgb-rule-20261110t125223z-formal-add1 --size=3 --autoscale-mode=off
+  ceph osd pool set pgb-20261110t125223z-formal-add1 min_size 2
+  ceph osd pool set pgb-20261110t125223z-formal-add1 compression_mode none
+  ceph osd pool set pgb-20261110t125223z-formal-add1 noscrub true
+  ceph osd pool set pgb-20261110t125223z-formal-add1 nodeep-scrub true
+  ceph osd pool application enable pgb-20261110t125223z-formal-add1 rados
+  ceph osd crush weight-set create pgb-20261110t125223z-formal-add1 flat
+  ceph osd crush weight-set reweight pgb-20261110t125223z-formal-add1 osd.9 0
+  ceph osd crush weight-set reweight pgb-20261110t125223z-formal-add1 osd.10 0
+  ceph osd crush weight-set reweight pgb-20261110t125223z-formal-add1 osd.11 0
+  ceph osd crush weight-set reweight pgb-20261110t125223z-formal-add1 node3 0
+  waiting clean (0.8s): [{'state_name': 'active+clean', 'count': 124}, {'state_name': 'peering', 'count': 5}]
+8-OSD idle control: 15s
+  idle control: 5.0s remaining
+Initial load: 4096 x 4 MiB; three replicas on OSD 0-7
+  load: 256/4096 objects
+  load: 512/4096 objects
+  load: 768/4096 objects
+  load: 1024/4096 objects
+  load: 1280/4096 objects
+  load: 1536/4096 objects
+  load: 1792/4096 objects
+  load: 2048/4096 objects
+  load: 2304/4096 objects
+  load: 2560/4096 objects
+  load: 2816/4096 objects
+  load: 3072/4096 objects
+  load: 3328/4096 objects
+  load: 3584/4096 objects
+  load: 3840/4096 objects
+  load: 4096/4096 objects
+Expanding test pool from 8 to 9 OSDs (adding [8]), with no client test writes
+  ceph osd crush weight-set reweight pgb-20261110t125223z-formal-add1 node3 1.7465972900390625
+Rebalance complete: received 6,871,569,435 B in 80.150s; matched idle control next
+  idle control: 68.3s remaining
+  idle control: 58.3s remaining
+  idle control: 48.3s remaining
+  idle control: 38.3s remaining
+  idle control: 28.2s remaining
+  idle control: 18.2s remaining
+  idle control: 8.2s remaining
+Full object content verification outside measurement windows
+  verified 512/4096 complete objects
+  verified 1024/4096 complete objects
+  verified 1536/4096 complete objects
+  verified 2048/4096 complete objects
+  verified 2560/4096 complete objects
+  verified 3072/4096 complete objects
+  verified 3584/4096 complete objects
+  verified 4096/4096 complete objects
+  ceph osd pool delete pgb-20261110t125223z-formal-add1 pgb-20261110t125223z-formal-add1 --yes-i-really-really-mean-it
+  ceph osd crush rule rm pgb-rule-20261110t125223z-formal-add1
+  ceph balancer on
+COMPLETED: load=1.000479x, load+balance=1.133805x
+completed: /home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T125223Z-formal-add1
+RESULT_DIR=/home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T125704Z-formal-add2
+  ceph balancer off
+  ceph osd crush rule create-replicated pgb-rule-20261110t125704z-formal-add2 default osd
+  ceph osd pool create pgb-20261110t125704z-formal-add2 128 128 replicated --rule=pgb-rule-20261110t125704z-formal-add2 --size=3 --autoscale-mode=off
+  ceph osd pool set pgb-20261110t125704z-formal-add2 min_size 2
+  ceph osd pool set pgb-20261110t125704z-formal-add2 compression_mode none
+  ceph osd pool set pgb-20261110t125704z-formal-add2 noscrub true
+  ceph osd pool set pgb-20261110t125704z-formal-add2 nodeep-scrub true
+  ceph osd pool application enable pgb-20261110t125704z-formal-add2 rados
+  ceph osd crush weight-set create pgb-20261110t125704z-formal-add2 flat
+  ceph osd crush weight-set reweight pgb-20261110t125704z-formal-add2 osd.10 0
+  ceph osd crush weight-set reweight pgb-20261110t125704z-formal-add2 osd.11 0
+  ceph osd crush weight-set reweight pgb-20261110t125704z-formal-add2 node3 0
+  waiting clean (0.9s): [{'state_name': 'active+clean', 'count': 121}, {'state_name': 'peering', 'count': 8}]
+8-OSD idle control: 15s
+  idle control: 5.0s remaining
+Initial load: 4096 x 4 MiB; three replicas on OSD 0-7
+  load: 256/4096 objects
+  load: 512/4096 objects
+  load: 768/4096 objects
+  load: 1024/4096 objects
+  load: 1280/4096 objects
+  load: 1536/4096 objects
+  load: 1792/4096 objects
+  load: 2048/4096 objects
+  load: 2304/4096 objects
+  load: 2560/4096 objects
+  load: 2816/4096 objects
+  load: 3072/4096 objects
+  load: 3328/4096 objects
+  load: 3584/4096 objects
+  load: 3840/4096 objects
+  load: 4096/4096 objects
+Expanding test pool from 8 to 10 OSDs (adding [8, 9]), with no client test writes
+  ceph osd crush weight-set reweight pgb-20261110t125704z-formal-add2 node3 3.493194580078125
+Rebalance complete: received 10,273,290,564 B in 77.803s; matched idle control next
+  idle control: 65.9s remaining
+  idle control: 55.9s remaining
+  idle control: 45.9s remaining
+  idle control: 35.9s remaining
+  idle control: 25.9s remaining
+  idle control: 15.9s remaining
+  idle control: 5.8s remaining
+Full object content verification outside measurement windows
+  verified 512/4096 complete objects
+  verified 1024/4096 complete objects
+  verified 1536/4096 complete objects
+  verified 2048/4096 complete objects
+  verified 2560/4096 complete objects
+  verified 3072/4096 complete objects
+  verified 3584/4096 complete objects
+  verified 4096/4096 complete objects
+  ceph osd pool delete pgb-20261110t125704z-formal-add2 pgb-20261110t125704z-formal-add2 --yes-i-really-really-mean-it
+  ceph osd crush rule rm pgb-rule-20261110t125704z-formal-add2
+  ceph balancer on
+COMPLETED: load=1.000469x, load+balance=1.199798x
+completed: /home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T125704Z-formal-add2
+RESULT_DIR=/home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T130140Z-formal-add3
+  ceph balancer off
+  ceph osd crush rule create-replicated pgb-rule-20261110t130140z-formal-add3 default osd
+  ceph osd pool create pgb-20261110t130140z-formal-add3 128 128 replicated --rule=pgb-rule-20261110t130140z-formal-add3 --size=3 --autoscale-mode=off
+  ceph osd pool set pgb-20261110t130140z-formal-add3 min_size 2
+  ceph osd pool set pgb-20261110t130140z-formal-add3 compression_mode none
+  ceph osd pool set pgb-20261110t130140z-formal-add3 noscrub true
+  ceph osd pool set pgb-20261110t130140z-formal-add3 nodeep-scrub true
+  ceph osd pool application enable pgb-20261110t130140z-formal-add3 rados
+  ceph osd crush weight-set create pgb-20261110t130140z-formal-add3 flat
+  ceph osd crush weight-set reweight pgb-20261110t130140z-formal-add3 osd.11 0
+  ceph osd crush weight-set reweight pgb-20261110t130140z-formal-add3 node3 0
+  waiting clean (1.7s): [{'state_name': 'active+clean', 'count': 129}]
+8-OSD idle control: 15s
+  idle control: 5.0s remaining
+Initial load: 4096 x 4 MiB; three replicas on OSD 0-7
+  load: 256/4096 objects
+  load: 512/4096 objects
+  load: 768/4096 objects
+  load: 1024/4096 objects
+  load: 1280/4096 objects
+  load: 1536/4096 objects
+  load: 1792/4096 objects
+  load: 2048/4096 objects
+  load: 2304/4096 objects
+  load: 2560/4096 objects
+  load: 2816/4096 objects
+  load: 3072/4096 objects
+  load: 3328/4096 objects
+  load: 3584/4096 objects
+  load: 3840/4096 objects
+  load: 4096/4096 objects
+Expanding test pool from 8 to 11 OSDs (adding [8, 9, 10]), with no client test writes
+  ceph osd crush weight-set reweight pgb-20261110t130140z-formal-add3 node3 5.2397918701171875
+  waiting clean (1.7s): [{'state_name': 'active+clean', 'count': 129}]
+Rebalance complete: received 12,795,652,137 B in 77.567s; matched idle control next
+  idle control: 65.7s remaining
+  idle control: 55.7s remaining
+  idle control: 45.7s remaining
+  idle control: 35.7s remaining
+  idle control: 25.6s remaining
+  idle control: 15.6s remaining
+  idle control: 5.6s remaining
+Full object content verification outside measurement windows
+  verified 512/4096 complete objects
+  verified 1024/4096 complete objects
+  verified 1536/4096 complete objects
+  verified 2048/4096 complete objects
+  verified 2560/4096 complete objects
+  verified 3072/4096 complete objects
+  verified 3584/4096 complete objects
+  verified 4096/4096 complete objects
+  ceph osd pool delete pgb-20261110t130140z-formal-add3 pgb-20261110t130140z-formal-add3 --yes-i-really-really-mean-it
+  ceph osd crush rule rm pgb-rule-20261110t130140z-formal-add3
+  ceph balancer on
+COMPLETED: load=1.000474x, load+balance=1.248742x
+completed: /home/cyf/ceph-lab-17.2.7/Exp_PGBalanceWriteAmplification/results/20261110T130140Z-formal-add3
