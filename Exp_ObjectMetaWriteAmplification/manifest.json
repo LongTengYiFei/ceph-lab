@@ -1,0 +1,296 @@
+{
+  "build_units": {
+    "node1": "ceph-quincy-build-node1-r2.service",
+    "node2": "ceph-quincy-build-node2-r2.service",
+    "node3": "ceph-quincy-build-node3-r2.service",
+    "node4": "ceph-quincy-build-node4-r2.service"
+  },
+  "cluster_initialized": true,
+  "commit": "b12291d110049b2f35e32e0de30d70e9a4c060d2",
+  "created_at_utc": "2026-11-09T10:59:43.282655+00:00",
+  "deployment_complete": true,
+  "directories_archived": true,
+  "fsid": "d095113b-6801-4f99-a3d5-306260ab1334",
+  "initialized_at_utc": "2026-11-09T11:22:25.167382+00:00",
+  "keys_generated": true,
+  "local_release_tag": "v17.2.7",
+  "mgr_id": "m1",
+  "mon_formatted": true,
+  "mon_host": "node1",
+  "mon_ip": "10.26.57.54",
+  "network": "native RDMA, IB 10.200.0.0/24",
+  "node1_static_archive": {
+    "directory": "/home/cyf/ceph-lab-17.2.7/archived-node1-static-libraries",
+    "host": "node2",
+    "note": "Not used at runtime; Ninja can recreate these archives from retained object files.",
+    "sha256": {
+      "libcommon.a": "5175ccc52c444d09058bc27ab85ff6abc541e4a00b81feaf804c91892463fcbc",
+      "libmon.a": "2aa203a630863b8b5f2b4e279a68e0743b1a4482b436382789538b25edb9dd37",
+      "libos.a": "f2d8c2a85e00e9ed7bcc51fc0440e5d40043a9e738e9dc627346a594723509ca",
+      "libosd.a": "fb1780a68c79f5fbe1e9e594ba7a371b2fd3dc455b1bb7b23e94104ba68053c5"
+    }
+  },
+  "nodes": {
+    "node1": {
+      "gid": "fe80:0000:0000:0000:a088:c203:0031:f04d",
+      "old_osds": [
+        0,
+        3,
+        6,
+        9
+      ],
+      "osds": [
+        {
+          "db_device": "/dev/objmeta_node1_0/backend_db",
+          "device": "/dev/nvme0n1",
+          "id": 0,
+          "initialized": true,
+          "old_id": 0,
+          "paired_cache_osd": 2,
+          "role": "backend",
+          "serial": "PHAO3323015H1P9SGN",
+          "shared_device": "/dev/nvme2n1",
+          "size": 1920383410176,
+          "uuid": "48b1f9b7-7f1b-47f9-8c81-d99d99c26e93"
+        },
+        {
+          "db_device": "/dev/objmeta_node1_1/backend_db",
+          "device": "/dev/nvme1n1",
+          "id": 1,
+          "initialized": true,
+          "old_id": 3,
+          "paired_cache_osd": 3,
+          "role": "backend",
+          "serial": "PHAO3323004E1P9SGN",
+          "shared_device": "/dev/nvme3n1",
+          "size": 1920383410176,
+          "uuid": "5e411488-fafa-4d06-8a79-da86967cbb8c"
+        },
+        {
+          "device": "/dev/objmeta_node1_0/cache_data",
+          "id": 2,
+          "initialized": true,
+          "old_id": 6,
+          "paired_backend_osd": 0,
+          "physical_device": "/dev/nvme2n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "18d77ca9-9d1b-4424-9570-7f47d3c5c0b0",
+          "role": "cache",
+          "serial": "PHAO331000K11P9SGN",
+          "size": 960189431808,
+          "uuid": "6d8cd566-b58a-4850-b860-b1682bbe9cb0"
+        },
+        {
+          "device": "/dev/objmeta_node1_1/cache_data",
+          "id": 3,
+          "initialized": true,
+          "old_id": 9,
+          "paired_backend_osd": 1,
+          "physical_device": "/dev/nvme3n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "04f194c9-453e-4e1e-88b3-adc979734026",
+          "role": "cache",
+          "serial": "PHAO332302EG1P9SGN",
+          "size": 960189431808,
+          "uuid": "85636173-bd96-4560-a612-f5122e1e8c93"
+        }
+      ],
+      "source_preservation": {
+        "backup_branch": "backup/pre-quincy-17.2.7-20261109T105939Z",
+        "old_branch": "dpu",
+        "old_head": "8fdb0f106133d896028732ad4871745158f13432",
+        "stash": "5c80144f6220f350f5f860a6e1224fd67eb1a666",
+        "submodule_stashes": {
+          "src/c-ares": "48f64418b34e149ac510893601e574d524470f1f"
+        }
+      }
+    },
+    "node2": {
+      "gid": "fe80:0000:0000:0000:a088:c203:00aa:b94d",
+      "old_osds": [
+        1,
+        4,
+        7,
+        10
+      ],
+      "osds": [
+        {
+          "db_device": "/dev/objmeta_node2_0/backend_db",
+          "device": "/dev/nvme1n1",
+          "id": 4,
+          "initialized": true,
+          "old_id": 1,
+          "paired_cache_osd": 6,
+          "role": "backend",
+          "serial": "PHAO332300CY1P9SGN",
+          "shared_device": "/dev/nvme3n1",
+          "size": 1920383410176,
+          "uuid": "af2502d6-cb95-445d-a1da-feefd1681876"
+        },
+        {
+          "db_device": "/dev/objmeta_node2_1/backend_db",
+          "device": "/dev/nvme2n1",
+          "id": 5,
+          "initialized": true,
+          "old_id": 4,
+          "paired_cache_osd": 7,
+          "role": "backend",
+          "serial": "PHAO332302F81P9SGN",
+          "shared_device": "/dev/nvme4n1",
+          "size": 1920383410176,
+          "uuid": "1d9b6cf0-86c6-4c5f-a4fc-49f2393aedff"
+        },
+        {
+          "device": "/dev/objmeta_node2_0/cache_data",
+          "id": 6,
+          "initialized": true,
+          "old_id": 7,
+          "paired_backend_osd": 4,
+          "physical_device": "/dev/nvme3n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "ca6ab8ee-896b-405e-a959-bfbd6d9eda00",
+          "role": "cache",
+          "serial": "PHAO332300881P9SGN",
+          "size": 960189431808,
+          "uuid": "ca811b0c-f23e-493d-9435-a08a630018ea"
+        },
+        {
+          "device": "/dev/objmeta_node2_1/cache_data",
+          "id": 7,
+          "initialized": true,
+          "old_id": 10,
+          "paired_backend_osd": 5,
+          "physical_device": "/dev/nvme4n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "0b9b3398-5e4b-4607-815c-6da4d4e531ab",
+          "role": "cache",
+          "serial": "PHAO332300211P9SGN",
+          "size": 960189431808,
+          "uuid": "fc754dc0-a22f-4f49-b2a9-5af7ee4dfe70"
+        }
+      ],
+      "source_preservation": {
+        "backup_branch": "backup/pre-quincy-17.2.7-20261109T105939Z",
+        "old_branch": "dpu",
+        "old_head": "8fdb0f106133d896028732ad4871745158f13432",
+        "stash": "234543b97ae1c3792949f714007b152e714de574",
+        "submodule_stashes": {}
+      }
+    },
+    "node3": {
+      "gid": "fe80:0000:0000:0000:a088:c203:00ab:1f6d",
+      "old_osds": [
+        2,
+        5,
+        8,
+        11
+      ],
+      "osds": [
+        {
+          "db_device": "/dev/objmeta_node3_0/backend_db",
+          "device": "/dev/nvme1n1",
+          "id": 8,
+          "initialized": true,
+          "old_id": 2,
+          "paired_cache_osd": 10,
+          "role": "backend",
+          "serial": "PHAO332302201P9SGN",
+          "shared_device": "/dev/nvme3n1",
+          "size": 1920383410176,
+          "uuid": "704fcc0e-85a5-4a62-a665-7519c9191ec3"
+        },
+        {
+          "db_device": "/dev/objmeta_node3_1/backend_db",
+          "device": "/dev/nvme2n1",
+          "id": 9,
+          "initialized": true,
+          "old_id": 5,
+          "paired_cache_osd": 11,
+          "role": "backend",
+          "serial": "PHAO3323000H1P9SGN",
+          "shared_device": "/dev/nvme4n1",
+          "size": 1920383410176,
+          "uuid": "35784f95-7776-4fa7-9966-e2bb28e2f4c5"
+        },
+        {
+          "device": "/dev/objmeta_node3_0/cache_data",
+          "id": 10,
+          "initialized": true,
+          "old_id": 8,
+          "paired_backend_osd": 8,
+          "physical_device": "/dev/nvme3n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "aaf909e1-4526-4e34-a40e-76b0f8966cb4",
+          "role": "cache",
+          "serial": "PHAO331000HN1P9SGN",
+          "size": 960189431808,
+          "uuid": "2304d81a-06fd-4192-9847-b64f3ddd1a31"
+        },
+        {
+          "device": "/dev/objmeta_node3_1/cache_data",
+          "id": 11,
+          "initialized": true,
+          "old_id": 11,
+          "paired_backend_osd": 9,
+          "physical_device": "/dev/nvme4n1",
+          "physical_size": 1920383410176,
+          "previous_uuid": "a1ac4f08-9dee-48c8-935c-5474258ccb79",
+          "role": "cache",
+          "serial": "PHAO3323009G1P9SGN",
+          "size": 960189431808,
+          "uuid": "68c3b603-33fa-4b64-8a92-797d4a2ac027"
+        }
+      ],
+      "source_preservation": {
+        "backup_branch": "backup/pre-quincy-17.2.7-20261109T105939Z",
+        "old_branch": "dpu",
+        "old_head": "5a8ee6b4ae4106e8b7c1719a4ad16ca12eb6e9fa",
+        "stash": "f06d8165354cc761ff95a702391cc327e8fb7029",
+        "submodule_stashes": {}
+      }
+    },
+    "node4": {
+      "gid": "fe80:0000:0000:0000:a088:c203:0031:ed09",
+      "old_osds": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "osds": [],
+      "source_preservation": {
+        "backup_branch": "backup/pre-quincy-17.2.7-20261109T105939Z",
+        "old_branch": "feature/dpu-decompression-only",
+        "old_head": "ad53c2cc1fbf56ba31f2dbb86c95ec97dde18fc9",
+        "submodule_stashes": {}
+      }
+    }
+  },
+  "objectmeta_layout": {
+    "cache_pool": "objmeta-cache",
+    "configured_at_utc": "2026-11-11T08:25:37.674964+00:00",
+    "data_pool": "objmeta-data",
+    "directory": "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification",
+    "osd_commit": "69fbba696bee9762a0025b6b128ddd978120ac78"
+  },
+  "previous_fsid": "886cee71-e800-4d78-95f4-43b791bfeb50",
+  "previous_log_archive": {
+    "directory": "/home/cyf/ceph-lab-17.2.7/archived-node1-logs",
+    "host": "node2",
+    "sha256": {
+      "ceph-osd.0.log-bench-20261108160212.gz": "b0589d2fe3fb8d75c48e73b6bc132f6e7c623c878a21b45f098d256a6569a14a",
+      "ceph-osd.3.log-bench-20261108160212.gz": "75f7a2d4c1cf808bdf40c029b779791694e002e5765c5238c33b9cbbd4361a37",
+      "ceph-osd.6.log-bench-20261108160212.gz": "4d2d849ea1b59d9b9f515c0ebd101817331e5929b656bbeedfbc2d19eae729bd",
+      "ceph-osd.9.log-bench-20261108160212.gz": "61b5328b218219d7f2387686cb95f2f9f5d60f410e4a0461d222ba77d6e5dfd6"
+    }
+  },
+  "python_binding_build_units": {
+    "node1": "ceph-quincy-cephfs-build-node1.service",
+    "node2": "ceph-quincy-cephfs-build-node2.service",
+    "node3": "ceph-quincy-cephfs-build-node3.service",
+    "node4": "ceph-quincy-cephfs-build-node4.service"
+  },
+  "source": "/home/cyf/ceph-dpu",
+  "stamp": "20261109T105939Z",
+  "verified_at_utc": "2026-11-09T11:43:32.912807+00:00"
+}

@@ -1,0 +1,3 @@
+workload,client_read_success,client_update_success,client_write_bytes,ssd_b_written_bytes,host_write_amplification,three_replica_normalized,active_written_bytes,tail_written_bytes,natural_evictions,natural_agent_flush
+A,1498081,1497674,6134472704,113717022720,18.537375289949615,6.179125096649872,107244208128,6472814592,716692,81750
+B,2845924,149891,613953536,44772216832,72.92443842525569,24.308146141751894,42480406528,2291810304,492999,0

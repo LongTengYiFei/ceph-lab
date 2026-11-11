@@ -1,0 +1,13 @@
+host,physical_device,role,lv_device,written_bytes
+node1,/dev/nvme2n1,backend_db,/dev/objmeta_node1_0/backend_db,647569408
+node1,/dev/nvme2n1,cache_data,/dev/objmeta_node1_0/cache_data,6835949568
+node1,/dev/nvme3n1,backend_db,/dev/objmeta_node1_1/backend_db,421191680
+node1,/dev/nvme3n1,cache_data,/dev/objmeta_node1_1/cache_data,6903074816
+node2,/dev/nvme3n1,backend_db,/dev/objmeta_node2_0/backend_db,487120896
+node2,/dev/nvme3n1,cache_data,/dev/objmeta_node2_0/cache_data,6508924928
+node2,/dev/nvme4n1,backend_db,/dev/objmeta_node2_1/backend_db,586231808
+node2,/dev/nvme4n1,cache_data,/dev/objmeta_node2_1/cache_data,7414599680
+node3,/dev/nvme3n1,backend_db,/dev/objmeta_node3_0/backend_db,486608896
+node3,/dev/nvme3n1,cache_data,/dev/objmeta_node3_0/cache_data,6068166656
+node3,/dev/nvme4n1,backend_db,/dev/objmeta_node3_1/backend_db,582451200
+node3,/dev/nvme4n1,cache_data,/dev/objmeta_node3_1/cache_data,7830327296

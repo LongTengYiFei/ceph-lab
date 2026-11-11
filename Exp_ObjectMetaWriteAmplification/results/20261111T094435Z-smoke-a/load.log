@@ -1,0 +1,11 @@
+Command line: -load -s -db lab.RadosBlockDB -P /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/ycsb/workloada.properties -threads 4 -p recordcount=256 -p rados.pool=objmeta-ya-data-20261111t094435z -p rados.stats=/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094435Z-smoke-a/load-client.json -p rados.phase=load -p rados.bypass=true
+YCSB Client 0.17.0
+
+Loading workload...
+Exception in thread "main" java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:614)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at site.ycsb.workloads.CoreWorkload.init(CoreWorkload.java:483)
+	at site.ycsb.Client.initWorkload(Client.java:466)
+	at site.ycsb.Client.main(Client.java:306)
+ (might take a few minutes for large data sets)

@@ -1,0 +1,66 @@
+Command line: -load -s -db lab.RadosBlockDB -P /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/ycsb/workloada.properties -threads 32 -p recordcount=1048576 -p rados.pool=objmeta-ya-data-20261111t094932z -p rados.stats=/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094932Z-ycsb-a/load-client.json -p rados.phase=load -p rados.bypass=true
+YCSB Client 0.17.0
+
+Loading workload...
+Starting test.
+2026-11-11 09:50:24:766 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+2026-11-11 09:50:34:740 10 sec: 319026 operations; 31902.6 current ops/sec; est completion in 23 seconds [INSERT: Count=319150, Max=57919, Min=420, Avg=957.06, 90=1178, 99=2301, 99.9=8831, 99.99=19039] 
+2026-11-11 09:50:44:741 20 sec: 650343 operations; 33131.7 current ops/sec; est completion in 13 seconds [INSERT: Count=331244, Max=13943, Min=393, Avg=963.31, 90=1217, 99=2569, 99.9=7191, 99.99=11679] 
+2026-11-11 09:50:54:739 30 sec: 974398 operations; 32405.5 current ops/sec; est completion in 3 second [INSERT: Count=324038, Max=38719, Min=445, Avg=984.33, 90=1239, 99=2461, 99.9=6835, 99.99=34687] 
+2026-11-11 09:50:57:138 32 sec: 1048576 operations; 30920.38 current ops/sec; [CLEANUP: Count=32, Max=108863, Min=3, Avg=3410.28, 90=7, 99=108863, 99.9=108863, 99.99=108863] [INSERT: Count=74144, Max=14847, Min=407, Avg=929.61, 90=1202, 99=2221, 99.9=6803, 99.99=14559] 
+[OVERALL], RunTime(ms), 32399
+[OVERALL], Throughput(ops/sec), 32364.455693076947
+[TOTAL_GCS_G1_Young_Generation], Count, 16
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 106
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.32717059168492857
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 16
+[TOTAL_GC_TIME], Time(ms), 106
+[TOTAL_GC_TIME_%], Time(%), 0.32717059168492857
+[CLEANUP], Operations, 32
+[CLEANUP], AverageLatency(us), 3410.28125
+[CLEANUP], MinLatency(us), 3
+[CLEANUP], MaxLatency(us), 108863
+[CLEANUP], 95thPercentileLatency(us), 9
+[CLEANUP], 99thPercentileLatency(us), 108863
+[INSERT], Operations, 1048576
+[INSERT], AverageLatency(us), 965.520546913147
+[INSERT], MinLatency(us), 393
+[INSERT], MaxLatency(us), 57919
+[INSERT], 95thPercentileLatency(us), 1435
+[INSERT], 99thPercentileLatency(us), 2425
+[INSERT], Return=OK, 1048576

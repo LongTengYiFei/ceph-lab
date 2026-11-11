@@ -1,0 +1,8 @@
+objmeta-validation-20261111T082712Z-0: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-1: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-2: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-3: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-4: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-5: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-6: write/read/flush/evict/promote OK
+objmeta-validation-20261111T082712Z-7: write/read/flush/evict/promote OK

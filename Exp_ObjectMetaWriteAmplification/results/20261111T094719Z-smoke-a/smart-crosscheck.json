@@ -1,0 +1,60 @@
+[
+  {
+    "host": "node1",
+    "device": "/dev/nvme2n1",
+    "serial": "PHAO331000K11P9SGN",
+    "data_units_written_delta": 12,
+    "media_errors_delta": 0,
+    "num_err_log_entries_delta": 0,
+    "smart_host_written_bytes": 6144000,
+    "block_written_bytes": 6139904
+  },
+  {
+    "host": "node1",
+    "device": "/dev/nvme3n1",
+    "serial": "PHAO332302EG1P9SGN",
+    "data_units_written_delta": 15,
+    "media_errors_delta": 0,
+    "num_err_log_entries_delta": 0,
+    "smart_host_written_bytes": 7680000,
+    "block_written_bytes": 7598080
+  },
+  {
+    "host": "node2",
+    "device": "/dev/nvme3n1",
+    "serial": "PHAO332300881P9SGN",
+    "data_units_written_delta": 14,
+    "media_errors_delta": 0,
+    "num_err_log_entries_delta": 0,
+    "smart_host_written_bytes": 7168000,
+    "block_written_bytes": 6873088
+  },
+  {
+    "host": "node2",
+    "device": "/dev/nvme4n1",
+    "serial": "PHAO332300211P9SGN",
+    "data_units_written_delta": 13,
+    "media_errors_delta": 0,
+    "num_err_log_entries_delta": 0,
+    "smart_host_written_bytes": 6656000,
+    "block_written_bytes": 6885376
+  },
+  {
+    "host": "node3",
+    "device": "/dev/nvme3n1",
+    "serial": "PHAO331000HN1P9SGN",
+    "data_units_written_delta": null,
+    "media_errors_delta": null,
+    "num_err_log_entries_delta": null,
+    "block_written_bytes": 7045120
+  },
+  {
+    "host": "node3",
+    "device": "/dev/nvme4n1",
+    "serial": "PHAO3323009G1P9SGN",
+    "data_units_written_delta": null,
+    "media_errors_delta": null,
+    "num_err_log_entries_delta": null,
+    "block_written_bytes": 6684672
+  }
+]

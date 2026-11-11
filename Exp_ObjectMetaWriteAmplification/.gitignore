@@ -1,0 +1,8 @@
+backups/
+__pycache__/
+*.pyc
+.configure.lock
+tools/
+ycsb/build/
+.ycsb.lock
+!results/**/*.log

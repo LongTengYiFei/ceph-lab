@@ -1,0 +1,35 @@
+Command line: -load -s -db lab.RadosBlockDB -P /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/ycsb/workloada.properties -threads 4 -p recordcount=256 -p rados.pool=objmeta-ya-data-20261111t094719z -p rados.stats=/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a/load-client.json -p rados.phase=load -p rados.bypass=true
+YCSB Client 0.17.0
+
+Loading workload...
+Starting test.
+2026-11-11 09:48:13:664 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+2026-11-11 09:48:14:236 0 sec: 256 operations; 428.09 current ops/sec; [CLEANUP: Count=4, Max=85311, Min=4, Avg=21330.5, 90=85311, 99=85311, 99.9=85311, 99.99=85311] [INSERT: Count=256, Max=25183, Min=678, Avg=1494.43, 90=1254, 99=25135, 99.9=25183, 99.99=25183] 
+[OVERALL], RunTime(ms), 598
+[OVERALL], Throughput(ops/sec), 428.09364548494983
+[TOTAL_GCS_G1_Young_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.0
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 0
+[TOTAL_GC_TIME], Time(ms), 0
+[TOTAL_GC_TIME_%], Time(%), 0.0
+[CLEANUP], Operations, 4
+[CLEANUP], AverageLatency(us), 21330.5
+[CLEANUP], MinLatency(us), 4
+[CLEANUP], MaxLatency(us), 85311
+[CLEANUP], 95thPercentileLatency(us), 85311
+[CLEANUP], 99thPercentileLatency(us), 85311
+[INSERT], Operations, 256
+[INSERT], AverageLatency(us), 1494.43359375
+[INSERT], MinLatency(us), 678
+[INSERT], MaxLatency(us), 25183
+[INSERT], 95thPercentileLatency(us), 1794
+[INSERT], 99thPercentileLatency(us), 25135
+[INSERT], Return=OK, 256

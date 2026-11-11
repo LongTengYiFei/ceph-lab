@@ -1,0 +1,509 @@
+{
+  "balancer_restored": true,
+  "config_dump": [
+    {
+      "can_update_at_runtime": true,
+      "level": "advanced",
+      "mask": "",
+      "name": "mgr/balancer/active",
+      "section": "mgr",
+      "value": "true"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.0",
+      "value": "55452.289017"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.1",
+      "value": "54094.997632"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.10",
+      "value": "55370.743395"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.11",
+      "value": "54071.173670"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.2",
+      "value": "56473.972953"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.3",
+      "value": "51703.207938"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.4",
+      "value": "55490.126531"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.5",
+      "value": "53315.824890"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.6",
+      "value": "54381.066514"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.7",
+      "value": "56042.288016"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.8",
+      "value": "54871.764960"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.9",
+      "value": "54469.985885"
+    }
+  ],
+  "osd_checks": {
+    "node1": {
+      "0": {
+        "numpg_removing": 0,
+        "pid": "2316387"
+      },
+      "1": {
+        "numpg_removing": 0,
+        "pid": "2318699"
+      },
+      "2": {
+        "numpg_removing": 0,
+        "pid": "2323633"
+      },
+      "3": {
+        "numpg_removing": 0,
+        "pid": "2325969"
+      }
+    },
+    "node2": {
+      "4": {
+        "numpg_removing": 0,
+        "pid": "327678"
+      },
+      "5": {
+        "numpg_removing": 0,
+        "pid": "329547"
+      },
+      "6": {
+        "numpg_removing": 0,
+        "pid": "331097"
+      },
+      "7": {
+        "numpg_removing": 0,
+        "pid": "332721"
+      }
+    },
+    "node3": {
+      "10": {
+        "numpg_removing": 0,
+        "pid": "765882"
+      },
+      "11": {
+        "numpg_removing": 0,
+        "pid": "767546"
+      },
+      "8": {
+        "numpg_removing": 0,
+        "pid": "761843"
+      },
+      "9": {
+        "numpg_removing": 0,
+        "pid": "763958"
+      }
+    }
+  },
+  "pools": [
+    {
+      "application_metadata": {
+        "mgr": {}
+      },
+      "auid": 0,
+      "cache_min_evict_age": 0,
+      "cache_min_flush_age": 0,
+      "cache_mode": "none",
+      "cache_target_dirty_high_ratio_micro": 600000,
+      "cache_target_dirty_ratio_micro": 400000,
+      "cache_target_full_ratio_micro": 800000,
+      "create_time": "2026-11-09T11:28:48.967627+0000",
+      "crush_rule": 1,
+      "erasure_code_profile": "",
+      "expected_num_objects": 0,
+      "fast_read": false,
+      "flags": 1,
+      "flags_names": "hashpspool",
+      "grade_table": [],
+      "hit_set_count": 0,
+      "hit_set_grade_decay_rate": 0,
+      "hit_set_params": {
+        "type": "none"
+      },
+      "hit_set_period": 0,
+      "hit_set_search_last_n": 0,
+      "last_change": "429",
+      "last_force_op_resend": "0",
+      "last_force_op_resend_preluminous": "0",
+      "last_force_op_resend_prenautilus": "0",
+      "last_pg_merge_meta": {
+        "last_epoch_clean": 0,
+        "last_epoch_started": 0,
+        "ready_epoch": 0,
+        "source_pgid": "0.0",
+        "source_version": "0'0",
+        "target_version": "0'0"
+      },
+      "min_read_recency_for_promote": 0,
+      "min_size": 2,
+      "min_write_recency_for_promote": 0,
+      "object_hash": 2,
+      "options": {
+        "pg_num_max": 32,
+        "pg_num_min": 1
+      },
+      "peering_crush_bucket_barrier": 0,
+      "peering_crush_bucket_count": 0,
+      "peering_crush_bucket_mandatory_member": 2147483647,
+      "peering_crush_bucket_target": 0,
+      "pg_autoscale_mode": "on",
+      "pg_num": 1,
+      "pg_num_pending": 1,
+      "pg_num_target": 1,
+      "pg_placement_num": 1,
+      "pg_placement_num_target": 1,
+      "pool_id": 1,
+      "pool_name": ".mgr",
+      "pool_snaps": [],
+      "quota_max_bytes": 0,
+      "quota_max_objects": 0,
+      "read_tier": -1,
+      "removed_snaps": "[]",
+      "size": 3,
+      "snap_epoch": 0,
+      "snap_mode": "selfmanaged",
+      "snap_seq": 0,
+      "stripe_width": 0,
+      "target_max_bytes": 0,
+      "target_max_objects": 0,
+      "tier_of": -1,
+      "tiers": [],
+      "type": 1,
+      "use_gmt_hitset": true,
+      "write_tier": -1
+    },
+    {
+      "application_metadata": {
+        "rados": {}
+      },
+      "auid": 0,
+      "cache_min_evict_age": 0,
+      "cache_min_flush_age": 0,
+      "cache_mode": "none",
+      "cache_target_dirty_high_ratio_micro": 600000,
+      "cache_target_dirty_ratio_micro": 400000,
+      "cache_target_full_ratio_micro": 800000,
+      "create_time": "2026-11-11T08:23:55.470048+0000",
+      "crush_rule": 1,
+      "erasure_code_profile": "",
+      "expected_num_objects": 0,
+      "fast_read": false,
+      "flags": 1,
+      "flags_names": "hashpspool",
+      "grade_table": [],
+      "hit_set_count": 0,
+      "hit_set_grade_decay_rate": 0,
+      "hit_set_params": {
+        "type": "none"
+      },
+      "hit_set_period": 0,
+      "hit_set_search_last_n": 0,
+      "last_change": "560",
+      "last_force_op_resend": "560",
+      "last_force_op_resend_preluminous": "560",
+      "last_force_op_resend_prenautilus": "560",
+      "last_pg_merge_meta": {
+        "last_epoch_clean": 0,
+        "last_epoch_started": 0,
+        "ready_epoch": 0,
+        "source_pgid": "0.0",
+        "source_version": "0'0",
+        "target_version": "0'0"
+      },
+      "min_read_recency_for_promote": 0,
+      "min_size": 2,
+      "min_write_recency_for_promote": 0,
+      "object_hash": 2,
+      "options": {
+        "compression_mode": "none"
+      },
+      "peering_crush_bucket_barrier": 0,
+      "peering_crush_bucket_count": 0,
+      "peering_crush_bucket_mandatory_member": 2147483647,
+      "peering_crush_bucket_target": 0,
+      "pg_autoscale_mode": "off",
+      "pg_num": 64,
+      "pg_num_pending": 64,
+      "pg_num_target": 64,
+      "pg_placement_num": 64,
+      "pg_placement_num_target": 64,
+      "pool_id": 30,
+      "pool_name": "objmeta-data",
+      "pool_snaps": [],
+      "quota_max_bytes": 0,
+      "quota_max_objects": 0,
+      "read_tier": 31,
+      "removed_snaps": "[]",
+      "size": 3,
+      "snap_epoch": 547,
+      "snap_mode": "selfmanaged",
+      "snap_seq": 0,
+      "stripe_width": 0,
+      "target_max_bytes": 0,
+      "target_max_objects": 0,
+      "tier_of": -1,
+      "tiers": [
+        31
+      ],
+      "type": 1,
+      "use_gmt_hitset": true,
+      "write_tier": 31
+    },
+    {
+      "application_metadata": {
+        "rados": {}
+      },
+      "auid": 0,
+      "cache_min_evict_age": 120,
+      "cache_min_flush_age": 60,
+      "cache_mode": "writeback",
+      "cache_target_dirty_high_ratio_micro": 600000,
+      "cache_target_dirty_ratio_micro": 400000,
+      "cache_target_full_ratio_micro": 800000,
+      "create_time": "2026-11-11T08:24:06.001839+0000",
+      "crush_rule": 2,
+      "erasure_code_profile": "",
+      "expected_num_objects": 0,
+      "fast_read": false,
+      "flags": 9,
+      "flags_names": "hashpspool,incomplete_clones",
+      "grade_table": [
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000
+      ],
+      "hit_set_count": 12,
+      "hit_set_grade_decay_rate": 0,
+      "hit_set_params": {
+        "false_positive_probability": 0.05,
+        "seed": 0,
+        "target_size": 0,
+        "type": "bloom"
+      },
+      "hit_set_period": 300,
+      "hit_set_search_last_n": 0,
+      "last_change": "560",
+      "last_force_op_resend": "560",
+      "last_force_op_resend_preluminous": "560",
+      "last_force_op_resend_prenautilus": "560",
+      "last_pg_merge_meta": {
+        "last_epoch_clean": 0,
+        "last_epoch_started": 0,
+        "ready_epoch": 0,
+        "source_pgid": "0.0",
+        "source_version": "0'0",
+        "target_version": "0'0"
+      },
+      "min_read_recency_for_promote": 1,
+      "min_size": 2,
+      "min_write_recency_for_promote": 0,
+      "object_hash": 2,
+      "options": {
+        "compression_mode": "none"
+      },
+      "peering_crush_bucket_barrier": 0,
+      "peering_crush_bucket_count": 0,
+      "peering_crush_bucket_mandatory_member": 2147483647,
+      "peering_crush_bucket_target": 0,
+      "pg_autoscale_mode": "off",
+      "pg_num": 64,
+      "pg_num_pending": 64,
+      "pg_num_target": 64,
+      "pg_placement_num": 64,
+      "pg_placement_num_target": 64,
+      "pool_id": 31,
+      "pool_name": "objmeta-cache",
+      "pool_snaps": [],
+      "quota_max_bytes": 0,
+      "quota_max_objects": 0,
+      "read_tier": -1,
+      "removed_snaps": "[]",
+      "size": 3,
+      "snap_epoch": 547,
+      "snap_mode": "selfmanaged",
+      "snap_seq": 0,
+      "stripe_width": 0,
+      "target_max_bytes": 1535450808320,
+      "target_max_objects": 0,
+      "tier_of": 30,
+      "tiers": [],
+      "type": 1,
+      "use_gmt_hitset": true,
+      "write_tier": -1
+    }
+  ],
+  "promotion_limits_restored": true,
+  "status": {
+    "election_epoch": 5,
+    "fsid": "d095113b-6801-4f99-a3d5-306260ab1334",
+    "fsmap": {
+      "by_rank": [],
+      "epoch": 1,
+      "up:standby": 0
+    },
+    "health": {
+      "checks": {
+        "MON_DISK_LOW": {
+          "muted": false,
+          "severity": "HEALTH_WARN",
+          "summary": {
+            "count": 1,
+            "message": "mon node1 is low on available space"
+          }
+        }
+      },
+      "mutes": [],
+      "status": "HEALTH_WARN"
+    },
+    "mgrmap": {
+      "available": true,
+      "modules": [
+        "iostat",
+        "nfs",
+        "restful"
+      ],
+      "num_standbys": 0,
+      "services": {}
+    },
+    "monmap": {
+      "epoch": 1,
+      "min_mon_release_name": "quincy",
+      "num_mons": 1
+    },
+    "osdmap": {
+      "epoch": 685,
+      "num_in_osds": 12,
+      "num_osds": 12,
+      "num_remapped_pgs": 0,
+      "num_up_osds": 12,
+      "osd_in_since": 1794385412,
+      "osd_up_since": 1794385425
+    },
+    "pgmap": {
+      "bytes_avail": 17276679622656,
+      "bytes_total": 23044573593600,
+      "bytes_used": 5767893970944,
+      "data_bytes": 786976,
+      "num_objects": 2,
+      "num_pgs": 129,
+      "num_pools": 3,
+      "pgs_by_state": [
+        {
+          "count": 129,
+          "state_name": "active+clean"
+        }
+      ]
+    },
+    "progress_events": {},
+    "quorum": [
+      0
+    ],
+    "quorum_age": 167521,
+    "quorum_names": [
+      "node1"
+    ],
+    "servicemap": {
+      "epoch": 2181,
+      "modified": "2026-11-11T10:07:25.291693+0000",
+      "services": {
+        "osd": {
+          "daemons": {
+            "2": {
+              "addr": "(unrecognized address family 0)/0",
+              "gid": 0,
+              "metadata": {},
+              "start_epoch": 0,
+              "start_stamp": "0.000000",
+              "task_status": {}
+            },
+            "3": {
+              "addr": "(unrecognized address family 0)/0",
+              "gid": 0,
+              "metadata": {},
+              "start_epoch": 0,
+              "start_stamp": "0.000000",
+              "task_status": {}
+            },
+            "summary": ""
+          }
+        }
+      }
+    }
+  }
+}

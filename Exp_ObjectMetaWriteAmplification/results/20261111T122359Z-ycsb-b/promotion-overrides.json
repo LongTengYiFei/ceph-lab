@@ -1,0 +1,234 @@
+{
+  "applied_utc": "2026-11-11T12:25:20.667752+00:00",
+  "before_dump": [
+    {
+      "can_update_at_runtime": true,
+      "level": "advanced",
+      "mask": "",
+      "name": "mgr/balancer/active",
+      "section": "mgr",
+      "value": "false"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.0",
+      "value": "55452.289017"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.1",
+      "value": "54094.997632"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.10",
+      "value": "55370.743395"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.11",
+      "value": "54071.173670"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.2",
+      "value": "56473.972953"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.3",
+      "value": "51703.207938"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.4",
+      "value": "55490.126531"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.5",
+      "value": "53315.824890"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.6",
+      "value": "54381.066514"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.7",
+      "value": "56042.288016"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.8",
+      "value": "54871.764960"
+    },
+    {
+      "can_update_at_runtime": true,
+      "level": "basic",
+      "mask": "",
+      "name": "osd_mclock_max_capacity_iops_ssd",
+      "section": "osd.9",
+      "value": "54469.985885"
+    }
+  ],
+  "entries": [
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:24:58.252127+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.2"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:00.235417+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.2"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:02.525865+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.3"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:04.500305+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.3"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:06.483839+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.6"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:08.726866+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.6"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:10.708004+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.7"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:12.704256+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.7"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:14.722721+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.10"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:16.669197+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.10"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:18.638759+00:00",
+      "key": "osd_tier_promote_max_objects_sec",
+      "new_value": "0",
+      "previous_effective": "25",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.11"
+    },
+    {
+      "applied": true,
+      "applied_utc": "2026-11-11T12:25:20.666552+00:00",
+      "key": "osd_tier_promote_max_bytes_sec",
+      "new_value": "0",
+      "previous_effective": "5242880",
+      "previous_explicit": null,
+      "restored": true,
+      "section": "osd.11"
+    }
+  ],
+  "restore_complete": true,
+  "restored_utc": "2026-11-11T12:38:04.350486+00:00",
+  "started_utc": "2026-11-11T12:24:56.282728+00:00"
+}

@@ -1,0 +1,45 @@
+Command line: -t -s -db lab.RadosBlockDB -P /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/ycsb/workloada.properties -threads 4 -p recordcount=256 -p rados.pool=objmeta-ya-data-20261111t094719z -p rados.stats=/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a/warmup-client.json -p rados.phase=warmup -p rados.bypass=false -target 500 -p operationcount=1000000000 -p maxexecutiontime=2
+YCSB Client 0.17.0
+
+Loading workload...
+Starting test.
+Maximum execution time specified as: 2 secs
+2026-11-11 09:48:15:234 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+Maximum time elapsed. Requesting stop for the workload.
+Stop requested for workload. Now Joining!
+2026-11-11 09:48:17:309 2 sec: 808 operations; 384.95 current ops/sec; est completion in 30 days 1 hour [READ: Count=418, Max=27551, Min=245, Avg=747.03, 90=848, 99=5327, 99.9=27551, 99.99=27551] [CLEANUP: Count=4, Max=89983, Min=5, Avg=22506.75, 90=89983, 99=89983, 99.9=89983, 99.99=89983] [UPDATE: Count=390, Max=25903, Min=951, Avg=1637.21, 90=1713, 99=6831, 99.9=25903, 99.99=25903] 
+[OVERALL], RunTime(ms), 2099
+[OVERALL], Throughput(ops/sec), 384.945212005717
+[TOTAL_GCS_G1_Young_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.0
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 0
+[TOTAL_GC_TIME], Time(ms), 0
+[TOTAL_GC_TIME_%], Time(%), 0.0
+[READ], Operations, 418
+[READ], AverageLatency(us), 747.0334928229665
+[READ], MinLatency(us), 245
+[READ], MaxLatency(us), 27551
+[READ], 95thPercentileLatency(us), 995
+[READ], 99thPercentileLatency(us), 5327
+[READ], Return=OK, 418
+[CLEANUP], Operations, 4
+[CLEANUP], AverageLatency(us), 22506.75
+[CLEANUP], MinLatency(us), 5
+[CLEANUP], MaxLatency(us), 89983
+[CLEANUP], 95thPercentileLatency(us), 89983
+[CLEANUP], 99thPercentileLatency(us), 89983
+[UPDATE], Operations, 390
+[UPDATE], AverageLatency(us), 1637.2051282051282
+[UPDATE], MinLatency(us), 951
+[UPDATE], MaxLatency(us), 25903
+[UPDATE], 95thPercentileLatency(us), 1897
+[UPDATE], 99thPercentileLatency(us), 6831
+[UPDATE], Return=OK, 390

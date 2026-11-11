@@ -1,0 +1,24 @@
+osd.2 osd_tier_promote_max_objects_sec 0
+osd.2 osd_tier_promote_max_bytes_sec 0
+osd.3 osd_tier_promote_max_objects_sec 0
+osd.3 osd_tier_promote_max_bytes_sec 0
+osd.6 osd_tier_promote_max_objects_sec 0
+osd.6 osd_tier_promote_max_bytes_sec 0
+osd.7 osd_tier_promote_max_objects_sec 0
+osd.7 osd_tier_promote_max_bytes_sec 0
+osd.10 osd_tier_promote_max_objects_sec 0
+osd.10 osd_tier_promote_max_bytes_sec 0
+osd.11 osd_tier_promote_max_objects_sec 0
+osd.11 osd_tier_promote_max_bytes_sec 0
+Restored osd.2 osd_tier_promote_max_objects_sec 25
+Restored osd.2 osd_tier_promote_max_bytes_sec 5242880
+Restored osd.3 osd_tier_promote_max_objects_sec 25
+Restored osd.3 osd_tier_promote_max_bytes_sec 5242880
+Restored osd.6 osd_tier_promote_max_objects_sec 25
+Restored osd.6 osd_tier_promote_max_bytes_sec 5242880
+Restored osd.7 osd_tier_promote_max_objects_sec 25
+Restored osd.7 osd_tier_promote_max_bytes_sec 5242880
+Restored osd.10 osd_tier_promote_max_objects_sec 25
+Restored osd.10 osd_tier_promote_max_bytes_sec 5242880
+Restored osd.11 osd_tier_promote_max_objects_sec 25
+Restored osd.11 osd_tier_promote_max_bytes_sec 5242880

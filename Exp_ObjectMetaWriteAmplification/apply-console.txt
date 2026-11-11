@@ -1,0 +1,215 @@
+Applying: snapshot
+Applying: restrict-backend
+Waiting: .mgr fully replicated on backend OSDs
+Applying: retire-donors
+Waiting: PGs clean before donor OSD retirement
+Waiting: six backend OSDs up/in and .mgr clean
+Applying: lvm-2
+Applying: lvm-3
+Applying: lvm-6
+Applying: lvm-7
+Applying: lvm-10
+Applying: lvm-11
+Applying: migrate-db-0
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 374, in <module>
+    main()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 356, in main
+    phase(state, f'migrate-db-{pair["backend_id"]}', lambda h=host, p=pair: migrate_one(h, p))
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 136, in phase
+    value = work()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 356, in <lambda>
+    phase(state, f'migrate-db-{pair["backend_id"]}', lambda h=host, p=pair: migrate_one(h, p))
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 211, in migrate_one
+    value = node(host, 'migrate-db', pair=pair)
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 56, in node
+    raise RuntimeError(f'{host}/{action}: {p.returncode}\n{p.stderr[-8000:]}')
+RuntimeError: node1/migrate-db: 1
+Traceback (most recent call last):
+  File "<string>", line 240, in <module>
+  File "<string>", line 229, in main
+  File "<string>", line 147, in migrate_db
+  File "<string>", line 35, in disk
+AssertionError: {'path': '/dev/mapper/objmeta_node1_0-backend_db', 'size': 960189431808, 'type': 'lvm', 'fstype': None, 'mountpoints': [None], 'serial': None}
+
+Already complete: snapshot
+Already complete: restrict-backend
+Already complete: retire-donors
+Already complete: lvm-2
+Already complete: lvm-3
+Already complete: lvm-6
+Already complete: lvm-7
+Already complete: lvm-10
+Already complete: lvm-11
+Applying: migrate-db-0
+Waiting: backend osd.0 rejoined and PGs clean
+Applying: migrate-db-1
+Waiting: backend osd.1 rejoined and PGs clean
+Applying: migrate-db-4
+Waiting: backend osd.4 rejoined and PGs clean
+Applying: migrate-db-5
+Waiting: backend osd.5 rejoined and PGs clean
+Applying: migrate-db-8
+Waiting: backend osd.8 rejoined and PGs clean
+Applying: migrate-db-9
+Waiting: backend osd.9 rejoined and PGs clean
+Applying: cache-2
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 374, in <module>
+    main()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 358, in main
+    phase(state, f'cache-{pair["cache_id"]}', lambda h=host, p=pair: create_cache(h, p, state))
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 136, in phase
+    value = work()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 358, in <lambda>
+    phase(state, f'cache-{pair["cache_id"]}', lambda h=host, p=pair: create_cache(h, p, state))
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 234, in create_cache
+    value = node(host, 'cache-mkfs', pair=pair, uuid=osd_uuid, keyring=key, stamp=state['stamp'])
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 56, in node
+    raise RuntimeError(f'{host}/{action}: {p.returncode}\n{p.stderr[-8000:]}')
+RuntimeError: node1/cache-mkfs: 1
+Traceback (most recent call last):
+  File "<string>", line 253, in <module>
+  File "<string>", line 244, in main
+  File "<string>", line 181, in cache_mkfs
+  File "<string>", line 28, in run
+RuntimeError: (PosixPath('/home/cyf/ceph-lab-17.2.7/snapwrite-artifacts/69fbba696bee9762a0025b6b128ddd978120ac78/run-ceph-osd'), '--conf', '/etc/ceph/ceph.conf', '--mkfs', '-i', '2', '--osd-uuid', '6d8cd566-b58a-4850-b860-b1682bbe9cb0', '--osd-data', '/var/lib/ceph/osd/ceph-2', '--keyring', '/var/lib/ceph/osd/ceph-2/keyring', '--setuser', 'root', '--setgroup', 'root', '--bluestore-block-preallocate=false'): 1
+
+2026-11-11T08:21:30.928+0000 7f89b31f93c0 -1 Infiniband verify_prereq!!! WARNING !!! For RDMA to work properly user memlock (ulimit -l) must be big enough to allow large amount of registered memory. We recommend setting this parameter to infinity
+unrecognized arg --bluestore-block-preallocate=false
+
+
+Already complete: snapshot
+Already complete: restrict-backend
+Already complete: retire-donors
+Already complete: lvm-2
+Already complete: lvm-3
+Already complete: lvm-6
+Already complete: lvm-7
+Already complete: lvm-10
+Already complete: lvm-11
+Already complete: migrate-db-0
+Already complete: migrate-db-1
+Already complete: migrate-db-4
+Already complete: migrate-db-5
+Already complete: migrate-db-8
+Already complete: migrate-db-9
+Applying: cache-2
+Waiting: cache osd.2 up
+Applying: cache-3
+Waiting: cache osd.3 up
+Applying: cache-6
+Waiting: cache osd.6 up
+Applying: cache-7
+Waiting: cache osd.7 up
+Applying: cache-10
+Waiting: cache osd.10 up
+Applying: cache-11
+Waiting: cache osd.11 up
+Applying: pools
+Waiting: all twelve OSDs up/in and existing PGs clean
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 374, in <module>
+    'cache': state['completed']['pools']}, indent=2))
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 359, in main
+    for host, pair in all_pairs(plan):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 136, in phase
+    record('phase_begin', phase=key)
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 359, in <lambda>
+    for host, pair in all_pairs(plan):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 259, in pools
+    if key != 'mode':
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 43, in command
+    record('ceph', argv=list(args))
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 49, in ceph
+    return remote('node1', 'sudo -n prlimit --memlock=unlimited -- env LD_LIBRARY_PATH=' + str(BUILD / 'lib') + ' ' +
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 30, in remote
+    return run(args, timeout=timeout, check=check)
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 24, in run
+    raise RuntimeError(f'{args}: exit={p.returncode}\n{p.stdout[-3000:]}\n{p.stderr[-3000:]}')
+RuntimeError: ('ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10', '-p', '23579', 'node1', 'sudo -n prlimit --memlock=unlimited -- env LD_LIBRARY_PATH=/home/cyf/ceph-dpu/build/lib /home/cyf/ceph-dpu/build/bin/ceph --conf /etc/ceph/ceph.conf osd pool set objmeta-cache cache_min_evict_age 120'): exit=13
+
+Error EACCES: (13) Permission denied
+
+Already complete: snapshot
+Already complete: restrict-backend
+Already complete: retire-donors
+Already complete: lvm-2
+Already complete: lvm-3
+Already complete: lvm-6
+Already complete: lvm-7
+Already complete: lvm-10
+Already complete: lvm-11
+Already complete: migrate-db-0
+Already complete: migrate-db-1
+Already complete: migrate-db-4
+Already complete: migrate-db-5
+Already complete: migrate-db-8
+Already complete: migrate-db-9
+Already complete: cache-2
+Already complete: cache-3
+Already complete: cache-6
+Already complete: cache-7
+Already complete: cache-10
+Already complete: cache-11
+Applying: pools
+Waiting: all twelve OSDs up/in and existing PGs clean
+Waiting: backend and cache PGs active+clean
+Applying: manifest
+Waiting: final twelve OSDs and all PGs clean
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 380, in <module>
+    main()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 370, in main
+    result = verify(plan)
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/configure_cluster.py", line 315, in verify
+    assert pg['state'] == 'active+clean' and len(pg['acting']) == 3
+AssertionError
+Already complete: snapshot
+Already complete: restrict-backend
+Already complete: retire-donors
+Already complete: lvm-2
+Already complete: lvm-3
+Already complete: lvm-6
+Already complete: lvm-7
+Already complete: lvm-10
+Already complete: lvm-11
+Already complete: migrate-db-0
+Already complete: migrate-db-1
+Already complete: migrate-db-4
+Already complete: migrate-db-5
+Already complete: migrate-db-8
+Already complete: migrate-db-9
+Already complete: cache-2
+Already complete: cache-3
+Already complete: cache-6
+Already complete: cache-7
+Already complete: cache-10
+Already complete: cache-11
+Already complete: pools
+Already complete: manifest
+Waiting: final twelve OSDs and all PGs clean
+Waiting: objmeta-data PG placement clean on three hosts
+Waiting: objmeta-cache PG placement clean on three hosts
+Waiting: .mgr PG placement clean on three hosts
+{
+  "configured": true,
+  "health": {
+    "status": "HEALTH_WARN",
+    "checks": {
+      "MON_DISK_LOW": {
+        "severity": "HEALTH_WARN",
+        "summary": {
+          "message": "mon node1 is low on available space",
+          "count": 1
+        },
+        "muted": false
+      }
+    },
+    "mutes": []
+  },
+  "cache": {
+    "cache_raw_bytes": 5761136590848,
+    "target_max_bytes": 1535450808320
+  }
+}

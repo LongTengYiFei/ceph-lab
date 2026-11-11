@@ -1,0 +1,351 @@
+{
+  "active_written_bytes": 42480406528,
+  "background_subtracted": false,
+  "cleanup_excluded": true,
+  "client": {
+    "crc_failures": 0,
+    "failures": 0,
+    "insert_success": 0,
+    "phase": "formal",
+    "read_success": 2845924,
+    "successful_write_bytes": 613953536,
+    "update_success": 149891,
+    "wall_seconds": 300.9221796989441
+  },
+  "formal_cache_events": {
+    "agent_evict": 492999,
+    "agent_flush": 0,
+    "op_cache_hit": 1599840,
+    "tier_clean": 0,
+    "tier_dirty": 18043,
+    "tier_evict": 492999,
+    "tier_flush": 0,
+    "tier_promote": 492945,
+    "tier_proxy_read": 1327962,
+    "tier_proxy_write": 70332,
+    "tier_try_flush": 0
+  },
+  "host_write_amplification": 72.92443842525569,
+  "idle_control": {
+    "bytes": 0,
+    "bytes_per_second": 0.0,
+    "seconds": 32.414628866
+  },
+  "main_window_seconds": 329.978377426,
+  "nand_waf_measured": false,
+  "per_disk": [
+    {
+      "device": "/dev/nvme2n1",
+      "host": "node1",
+      "serial": "PHAO331000K11P9SGN",
+      "written_GiB": 6.969570159912109,
+      "written_bytes": 7483518976
+    },
+    {
+      "device": "/dev/nvme3n1",
+      "host": "node1",
+      "serial": "PHAO332302EG1P9SGN",
+      "written_GiB": 6.821254730224609,
+      "written_bytes": 7324266496
+    },
+    {
+      "device": "/dev/nvme3n1",
+      "host": "node2",
+      "serial": "PHAO332300881P9SGN",
+      "written_GiB": 6.515575408935547,
+      "written_bytes": 6996045824
+    },
+    {
+      "device": "/dev/nvme4n1",
+      "host": "node2",
+      "serial": "PHAO332300211P9SGN",
+      "written_GiB": 7.45135498046875,
+      "written_bytes": 8000831488
+    },
+    {
+      "device": "/dev/nvme3n1",
+      "host": "node3",
+      "serial": "PHAO331000HN1P9SGN",
+      "written_GiB": 6.104610443115234,
+      "written_bytes": 6554775552
+    },
+    {
+      "device": "/dev/nvme4n1",
+      "host": "node3",
+      "serial": "PHAO3323009G1P9SGN",
+      "written_GiB": 7.835010528564453,
+      "written_bytes": 8412778496
+    }
+  ],
+  "ssd_b_written_GiB": 41.6973762512207,
+  "ssd_b_written_bytes": 44772216832,
+  "tail_written_bytes": 2291810304,
+  "three_replica_normalized": 24.308146141751894,
+  "warmup_excluded": true,
+  "lv_split": {
+    "backend_db": 3211173888,
+    "cache_data": 41561042944,
+    "physical_minus_lv_bytes": 0
+  },
+  "path_estimates": {
+    "backend": {
+      "bluefs_write_bytes": 3210805248,
+      "object_write_path_bytes": 1357166178,
+      "rocksdb_submitted_bytes": 348003225,
+      "deferred_write_bytes": 147456
+    },
+    "cache": {
+      "bluefs_write_bytes": 34515496960,
+      "object_write_path_bytes": 7041216576,
+      "rocksdb_submitted_bytes": 5843605731,
+      "deferred_write_bytes": 147456
+    }
+  },
+  "promotion_overrides": {
+    "applied_utc": "2026-11-11T12:25:20.667752+00:00",
+    "before_dump": [
+      {
+        "can_update_at_runtime": true,
+        "level": "advanced",
+        "mask": "",
+        "name": "mgr/balancer/active",
+        "section": "mgr",
+        "value": "false"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.0",
+        "value": "55452.289017"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.1",
+        "value": "54094.997632"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.10",
+        "value": "55370.743395"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.11",
+        "value": "54071.173670"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.2",
+        "value": "56473.972953"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.3",
+        "value": "51703.207938"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.4",
+        "value": "55490.126531"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.5",
+        "value": "53315.824890"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.6",
+        "value": "54381.066514"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.7",
+        "value": "56042.288016"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.8",
+        "value": "54871.764960"
+      },
+      {
+        "can_update_at_runtime": true,
+        "level": "basic",
+        "mask": "",
+        "name": "osd_mclock_max_capacity_iops_ssd",
+        "section": "osd.9",
+        "value": "54469.985885"
+      }
+    ],
+    "entries": [
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:24:58.252127+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.2"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:00.235417+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.2"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:02.525865+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.3"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:04.500305+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.3"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:06.483839+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.6"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:08.726866+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.6"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:10.708004+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.7"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:12.704256+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.7"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:14.722721+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.10"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:16.669197+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.10"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:18.638759+00:00",
+        "key": "osd_tier_promote_max_objects_sec",
+        "new_value": "0",
+        "previous_effective": "25",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.11"
+      },
+      {
+        "applied": true,
+        "applied_utc": "2026-11-11T12:25:20.666552+00:00",
+        "key": "osd_tier_promote_max_bytes_sec",
+        "new_value": "0",
+        "previous_effective": "5242880",
+        "previous_explicit": null,
+        "restored": true,
+        "section": "osd.11"
+      }
+    ],
+    "restore_complete": true,
+    "restored_utc": "2026-11-11T12:38:04.350486+00:00",
+    "started_utc": "2026-11-11T12:24:56.282728+00:00"
+  },
+  "smart_crosscheck": {
+    "available_disks": 4,
+    "total_disks": 6,
+    "smart_written_bytes": 29805056000,
+    "block_written_bytes": 29804662784
+  },
+  "cache_observed": {
+    "samples": 27,
+    "stored_min_bytes": 800561664,
+    "stored_max_bytes": 805252352,
+    "dirty_min": 22121,
+    "dirty_max": 39563
+  }
+}

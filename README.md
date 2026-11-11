@@ -1,5 +1,22 @@
 # Ceph 17.2.7：三节点、12 OSD 实验集群
 
+## 对象元数据实验布局（当前）
+
+集群已改为 **6 个后端 OSD + 6 个缓存 OSD**，每台仍运行 4 个 OSD：
+后端为 `0、1、4、5、8、9`，缓存为 `2、3、6、7、10、11`。
+六块共享 SSD 分别用 LVM 等分为后端 DB/WAL 和缓存 OSD 数据两个 LV，
+六块后端数据 SSD 保持整盘。后端 OSD 的 ID、UUID、数据及集群 FSID 均保留。
+
+`objmeta-data` 和 `objmeta-cache` 使用独立 CRUSH 类别和跨主机三副本；
+缓存池以 writeback tier 和读写 overlay 关联后端池。`.mgr` 也放在后端组。
+配置脚本、逐盘映射和当前验收入口见
+[Exp_ObjectMetaWriteAmplification](Exp_ObjectMetaWriteAmplification/README.md)。
+
+`clusterctl.py start/stop/restart/status` 继续适用；当前布局和版本请使用实验目录的
+`configure_cluster.py verify` 验收。原有两组实验的历史结果保留，其脚本不能直接当作
+当前分层布局的测试入口。下方布局表和原始验收文件保留最初的整盘部署记录，
+当前设备映射以更新后的 `manifest.json` 和本实验目录为准。
+
 ## snapWrite 测试分支（当前运行状态）
 
 四台源码使用从原版 17.2.7 派生的 `snapWrite` 分支，提交为

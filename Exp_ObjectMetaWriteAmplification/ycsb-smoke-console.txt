@@ -1,0 +1,56 @@
+Waiting: temporary pools clean
+Starting YCSB load: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094435Z-smoke-a/load.log
+Cleaning only this run's temporary pools
+Waiting: dirty cache drained before resource removal
+Results: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094435Z-smoke-a
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 330, in run
+    self.run_phase('load', load=True)
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 195, in run_phase
+    assert process.returncode == 0, path.read_text()[-4000:]
+AssertionError: Command line: -load -s -db lab.RadosBlockDB -P /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/ycsb/workloada.properties -threads 4 -p recordcount=256 -p rados.pool=objmeta-ya-data-20261111t094435z -p rados.stats=/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094435Z-smoke-a/load-client.json -p rados.phase=load -p rados.bypass=true
+YCSB Client 0.17.0
+
+Loading workload...
+Exception in thread "main" java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:614)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at site.ycsb.workloads.CoreWorkload.init(CoreWorkload.java:483)
+	at site.ycsb.Client.initWorkload(Client.java:466)
+	at site.ycsb.Client.main(Client.java:306)
+ (might take a few minutes for large data sets)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 374, in <module>
+    main()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 370, in main
+    Experiment(args).run()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 342, in run
+    self.cleanup()
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 309, in cleanup
+    self.command('osd', 'tier', 'cache-mode', self.cache, 'none')
+  File "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/run_ycsb.py", line 72, in command
+    return ceph(*args)
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 49, in ceph
+    return remote('node1', 'sudo -n prlimit --memlock=unlimited -- env LD_LIBRARY_PATH=' + str(BUILD / 'lib') + ' ' +
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 30, in remote
+    return run(args, timeout=timeout, check=check)
+  File "/home/cyf/ceph-lab-17.2.7/lab_common.py", line 24, in run
+    raise RuntimeError(f'{args}: exit={p.returncode}\n{p.stdout[-3000:]}\n{p.stderr[-3000:]}')
+RuntimeError: ('ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10', '-p', '23579', 'node1', 'sudo -n prlimit --memlock=unlimited -- env LD_LIBRARY_PATH=/home/cyf/ceph-dpu/build/lib /home/cyf/ceph-dpu/build/bin/ceph --conf /etc/ceph/ceph.conf osd tier cache-mode objmeta-ya-cache-20261111t094435z none'): exit=22
+
+Error EINVAL: unable to set cache-mode 'none' on a 'writeback' pool; only 'readproxy' allowed.
+
+Waiting: temporary pools clean
+Starting YCSB load: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a/load.log
+Starting YCSB warmup: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a/warmup.log
+Starting YCSB formal: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a/formal.log
+Draining dirty cache after measurement workload
+Waiting: cache dirty objects zero
+Cleaning only this run's temporary pools
+Waiting: dirty cache drained before resource removal
+Waiting: original cluster clean after cleanup
+Results: /home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/results/20261111T094719Z-smoke-a

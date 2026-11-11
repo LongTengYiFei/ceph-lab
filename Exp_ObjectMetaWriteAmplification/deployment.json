@@ -1,0 +1,147 @@
+{
+  "completed": {
+    "cache-10": {
+      "block": "/dev/objmeta_node3_0/cache_data",
+      "osd": 10,
+      "uuid": "2304d81a-06fd-4192-9847-b64f3ddd1a31"
+    },
+    "cache-11": {
+      "block": "/dev/objmeta_node3_1/cache_data",
+      "osd": 11,
+      "uuid": "68c3b603-33fa-4b64-8a92-797d4a2ac027"
+    },
+    "cache-2": {
+      "block": "/dev/objmeta_node1_0/cache_data",
+      "osd": 2,
+      "uuid": "6d8cd566-b58a-4850-b860-b1682bbe9cb0"
+    },
+    "cache-3": {
+      "block": "/dev/objmeta_node1_1/cache_data",
+      "osd": 3,
+      "uuid": "85636173-bd96-4560-a612-f5122e1e8c93"
+    },
+    "cache-6": {
+      "block": "/dev/objmeta_node2_0/cache_data",
+      "osd": 6,
+      "uuid": "ca811b0c-f23e-493d-9435-a08a630018ea"
+    },
+    "cache-7": {
+      "block": "/dev/objmeta_node2_1/cache_data",
+      "osd": 7,
+      "uuid": "fc754dc0-a22f-4f49-b2a9-5af7ee4dfe70"
+    },
+    "lvm-10": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node3_0"
+    },
+    "lvm-11": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node3_1"
+    },
+    "lvm-2": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node1_0"
+    },
+    "lvm-3": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node1_1"
+    },
+    "lvm-6": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node2_0"
+    },
+    "lvm-7": {
+      "cache_bytes": 960189431808,
+      "db_bytes": 960189431808,
+      "physical_bytes": 1920383410176,
+      "unallocated_extents": 0,
+      "vg": "objmeta_node2_1"
+    },
+    "manifest": true,
+    "migrate-db-0": {
+      "block": "/dev/nvme0n1",
+      "block_db": "/dev/objmeta_node1_0/backend_db",
+      "fsck_passed": true,
+      "osd": 0
+    },
+    "migrate-db-1": {
+      "block": "/dev/nvme1n1",
+      "block_db": "/dev/objmeta_node1_1/backend_db",
+      "fsck_passed": true,
+      "osd": 1
+    },
+    "migrate-db-4": {
+      "block": "/dev/nvme1n1",
+      "block_db": "/dev/objmeta_node2_0/backend_db",
+      "fsck_passed": true,
+      "osd": 4
+    },
+    "migrate-db-5": {
+      "block": "/dev/nvme2n1",
+      "block_db": "/dev/objmeta_node2_1/backend_db",
+      "fsck_passed": true,
+      "osd": 5
+    },
+    "migrate-db-8": {
+      "block": "/dev/nvme1n1",
+      "block_db": "/dev/objmeta_node3_0/backend_db",
+      "fsck_passed": true,
+      "osd": 8
+    },
+    "migrate-db-9": {
+      "block": "/dev/nvme2n1",
+      "block_db": "/dev/objmeta_node3_1/backend_db",
+      "fsck_passed": true,
+      "osd": 9
+    },
+    "pools": {
+      "cache_raw_bytes": 5761136590848,
+      "target_max_bytes": 1535450808320
+    },
+    "restrict-backend": {
+      "backend_osds": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9
+      ]
+    },
+    "retire-donors": {
+      "retired_osds": [
+        2,
+        3,
+        6,
+        7,
+        10,
+        11
+      ]
+    },
+    "snapshot": {
+      "balancer_active": true,
+      "directory": "/home/cyf/ceph-lab-17.2.7/Exp_ObjectMetaWriteAmplification/backups/20261111T081626Z",
+      "initial_flags": "sortbitwise,recovery_deletes,purged_snapdirs,pglog_hardlimit"
+    }
+  },
+  "finished_utc": "2026-11-11T08:27:06.348437+00:00",
+  "stamp": "20261111T081626Z",
+  "started_utc": "2026-11-11T08:16:26.791158+00:00",
+  "updated_utc": "2026-11-11T08:25:37.677699+00:00",
+  "verified": true
+}
